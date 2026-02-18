@@ -282,6 +282,17 @@ body {
   font-size: clamp(1.02rem, 2.9vw, 1.18rem);
 }
 
+.waitlist-note {
+  margin: 18px 0 10px;
+  color: #b8c7dd;
+  font-size: clamp(0.95rem, 2.4vw, 1.05rem);
+}
+
+.waitlist-btn {
+  min-height: 64px;
+  font-size: clamp(1.25rem, 3.7vw, 1.72rem);
+}
+
 .scroll-arrow {
   margin-top: auto;
   margin-bottom: 24px;
