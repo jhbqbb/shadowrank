@@ -602,6 +602,8 @@ body {
 @media (max-width: 680px) {
   .topbar {
     width: calc(100% - 1.2rem);
+    justify-content: center;
+    position: relative;
   }
 
   .page {
@@ -612,12 +614,123 @@ body {
     display: none;
   }
 
+  .brand {
+    font-size: 1.15rem;
+    letter-spacing: 0.09em;
+  }
+
+  .top-cta {
+    position: absolute;
+    right: 0;
+    font-size: 0.74rem;
+    padding: 0.42rem 0.6rem;
+    border-radius: 9px;
+  }
+
+  .hero {
+    padding-top: 1.35rem;
+    gap: 0.72rem;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .section-head,
+  .systems-copy,
+  .operator-note,
+  .join-card {
+    text-align: center;
+  }
+
+  .status-line {
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    padding: 0.32rem 0.56rem;
+  }
+
   .hero h1 {
+    font-family: "Rajdhani", "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.15rem, 11.8vw, 2.85rem);
+    line-height: 0.9;
+    letter-spacing: 0.03em;
+  }
+
+  .lead {
+    margin-top: 0.52rem;
+    font-size: clamp(0.86rem, 3.7vw, 1.02rem);
     letter-spacing: 0.04em;
   }
 
+  .hero-text {
+    margin: 0.75rem auto 0;
+    max-width: 30ch;
+    font-size: 0.96rem;
+    line-height: 1.35;
+  }
+
+  .cta-row {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .btn {
+    min-width: 134px;
+    padding: 0.72rem 0.94rem;
+    font-size: 0.82rem;
+    border-radius: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .proof-list {
+    margin-top: 0.85rem;
+    justify-content: center;
+  }
+
   .proof-list li {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.52rem;
+  }
+
+  .section-head h2,
+  .systems h2,
+  .join h2 {
+    font-size: clamp(1.62rem, 8vw, 2rem);
+    line-height: 0.95;
+  }
+
+  .section-kicker {
+    font-size: 0.68rem;
+  }
+
+  .protocol-card h3,
+  .operator-note h3 {
+    font-size: 1.04rem;
+  }
+
+  .protocol-card p,
+  .systems-copy > p,
+  .system-lines p,
+  .operator-note p,
+  .join-card p {
     font-size: 0.9rem;
+    line-height: 1.32;
+  }
+
+  .systems-image {
+    min-height: 210px;
+  }
+
+  .systems-image-title {
+    font-size: clamp(1.7rem, 9.4vw, 2.3rem);
+  }
+
+  .join-actions {
+    justify-content: center;
+  }
+
+  .join-actions .btn {
+    flex: 1 1 142px;
+    max-width: 174px;
   }
 }
 
