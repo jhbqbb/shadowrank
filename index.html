@@ -1,210 +1,1047 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#050a17" />
-    <title>ShadowRank | Real Life. Real Quests. Real Leveling.</title>
-    <meta
-      name="description"
-      content="ShadowRank is the IRL RPG where your daily discipline becomes XP, rank, and identity. Join the First Awakening."
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="atmosphere" aria-hidden="true"></div>
-    <div class="grid-glow" aria-hidden="true"></div>
-    <div class="particles" id="particles" aria-hidden="true"></div>
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="S Rank turns goals into quests, effort into progress, and consistency into growth. Join Discord for early access."
+  >
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="S Rank">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>S Rank</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #000000;
+      --bg-soft: #0e0e0e;
+      --bg-card: rgba(28, 28, 28, 0.72);
+      --bg-card-strong: rgba(32, 32, 32, 0.9);
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.14);
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.66);
+      --soft: rgba(255, 255, 255, 0.42);
+      --quote: #687380;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      --blur: blur(16px);
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.04), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Rajdhani", system-ui, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .noise,
+    .grid,
+    .aurora {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .noise {
+      opacity: 0.04;
+      background-image:
+        radial-gradient(rgba(255, 255, 255, 0.35) 0.5px, transparent 0.5px);
+      background-size: 4px 4px;
+    }
+
+    .grid {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, black 32%, transparent 85%);
+      opacity: 0.4;
+    }
+
+    .aurora::before,
+    .aurora::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(80px);
+      opacity: 0.14;
+      animation: floatGlow 16s ease-in-out infinite alternate;
+    }
+
+    .aurora::before {
+      width: 420px;
+      height: 420px;
+      background: #ffffff;
+      top: -120px;
+      left: -140px;
+    }
+
+    .aurora::after {
+      width: 340px;
+      height: 340px;
+      background: #7e8792;
+      right: -80px;
+      top: 20%;
+      animation-delay: -6s;
+    }
+
+    @keyframes floatGlow {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      to {
+        transform: translate3d(30px, -20px, 0) scale(1.08);
+      }
+    }
+
+    .site-shell {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 80px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 0 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      padding: 8px;
+      backdrop-filter: var(--blur);
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-family: "Teko", sans-serif;
+      font-size: 30px;
+      line-height: 0.9;
+      letter-spacing: 1.2px;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: var(--blur);
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      transition: transform 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease);
+      cursor: pointer;
+    }
+
+    .pill-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .pill-btn.primary {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 14px 36px rgba(255, 255, 255, 0.12);
+    }
+
+    .browser-card {
+      display: none;
+      margin: 14px 0 28px;
+      padding: 18px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background: rgba(26, 26, 26, 0.88);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      transform-origin: top center;
+      animation: unfoldIn 700ms var(--ease) both;
+    }
+
+    .browser-card.is-visible {
+      display: grid;
+      gap: 16px;
+    }
+
+    .browser-kicker {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    .browser-title {
+      margin: 0;
+      font-family: "Teko", sans-serif;
+      font-size: clamp(34px, 7vw, 48px);
+      line-height: 0.95;
+      letter-spacing: 1.2px;
+    }
+
+    .browser-body {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .browser-steps {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .browser-step {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .browser-step-index {
+      flex: 0 0 28px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .browser-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.96fr);
+      gap: 28px;
+      align-items: center;
+      min-height: calc(100dvh - 150px);
+      padding: 18px 0 48px;
+    }
+
+    .hero-copy,
+    .hero-visual {
+      opacity: 0;
+      transform: translateY(26px);
+      animation: riseIn 850ms var(--ease) forwards;
+    }
+
+    .hero-visual {
+      animation-delay: 130ms;
+    }
+
+    @keyframes riseIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes unfoldIn {
+      0% {
+        opacity: 0;
+        transform: scaleY(0.15) translateY(-14px);
+      }
+      100% {
+        opacity: 1;
+        transform: scaleY(1) translateY(0);
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 38px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--soft);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      backdrop-filter: var(--blur);
+    }
+
+    .hero-title {
+      margin: 18px 0 14px;
+      font-family: "Teko", sans-serif;
+      font-size: clamp(72px, 13vw, 150px);
+      line-height: 0.82;
+      letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.4vw, 24px);
+      line-height: 1.45;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .hero-point {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      backdrop-filter: var(--blur);
+    }
+
+    .hero-point strong {
+      display: block;
+      font-family: "Teko", sans-serif;
+      font-size: 28px;
+      line-height: 0.95;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .hero-point span {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .visual-stage {
+      position: relative;
+      min-height: 760px;
+      border-radius: 38px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+        rgba(14, 14, 14, 0.84);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .visual-stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 30%),
+        linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.4));
+      pointer-events: none;
+    }
+
+    .phone-card {
+      position: absolute;
+      width: min(42vw, 260px);
+      border-radius: 32px;
+      overflow: hidden;
+      background: rgba(18, 18, 18, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: 0 34px 90px rgba(0, 0, 0, 0.46);
+      transform-style: preserve-3d;
+    }
+
+    .phone-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .phone-card.main {
+      top: 82px;
+      right: 64px;
+      transform: rotate(6deg);
+      animation: floatCardA 9s ease-in-out infinite;
+    }
+
+    .phone-card.left {
+      left: 46px;
+      bottom: 120px;
+      width: min(34vw, 214px);
+      transform: rotate(-10deg);
+      animation: floatCardB 11s ease-in-out infinite;
+    }
+
+    .phone-card.detail {
+      right: 36px;
+      bottom: 42px;
+      width: min(26vw, 180px);
+      transform: rotate(-4deg);
+      animation: floatCardC 10s ease-in-out infinite;
+    }
+
+    @keyframes floatCardA {
+      0%, 100% { transform: rotate(6deg) translateY(0); }
+      50% { transform: rotate(4deg) translateY(-12px); }
+    }
+
+    @keyframes floatCardB {
+      0%, 100% { transform: rotate(-10deg) translateY(0); }
+      50% { transform: rotate(-8deg) translateY(-16px); }
+    }
+
+    @keyframes floatCardC {
+      0%, 100% { transform: rotate(-4deg) translateY(0); }
+      50% { transform: rotate(-2deg) translateY(-10px); }
+    }
+
+    .quote-card {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      top: 26px;
+      padding: 26px 24px 20px;
+      border-radius: 28px;
+      background: rgba(31, 31, 31, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(16px);
+    }
+
+    .quote-mark {
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 62px;
+      line-height: 0.8;
+      color: var(--quote);
+    }
+
+    .quote-text {
+      margin: 8px 0 10px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.65;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .section {
+      margin-top: 38px;
+      padding: 24px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: rgba(18, 18, 18, 0.7);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: "Teko", sans-serif;
+      font-size: clamp(40px, 6vw, 66px);
+      line-height: 0.9;
+      letter-spacing: 1px;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.5;
+      max-width: 620px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      padding: 22px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .feature-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-family: "Teko", sans-serif;
+      font-size: 30px;
+      line-height: 0.95;
+      letter-spacing: 0.8px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .signup-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .signup-card,
+    .discord-card {
+      padding: 24px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .card-kicker {
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    .card-title {
+      margin: 0 0 10px;
+      font-family: "Teko", sans-serif;
+      font-size: 42px;
+      line-height: 0.95;
+      letter-spacing: 0.8px;
+    }
+
+    .card-desc {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .waitlist-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .email {
+      width: 100%;
+      min-height: 56px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font: 600 17px/1.2 "Rajdhani", sans-serif;
+      padding: 0 18px;
+      outline: none;
+      transition: border-color 150ms var(--ease), background 150ms var(--ease), box-shadow 150ms var(--ease);
+    }
+
+    .email:focus {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+    }
+
+    .status {
+      min-height: 24px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .status.ok {
+      color: #ffffff;
+    }
+
+    .status.err {
+      color: #ff8d8d;
+    }
+
+    .discord-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+
+    .discord-list div {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .signup-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-stage {
+        min-height: 760px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-shell {
+        width: min(100% - 24px, 100%);
+        padding-top: 18px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 10px;
+      }
+
+      .hero-title {
+        font-size: clamp(64px, 22vw, 112px);
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-stage {
+        min-height: 680px;
+      }
+
+      .quote-card {
+        left: 16px;
+        right: 16px;
+      }
+
+      .phone-card.main {
+        right: 28px;
+      }
+
+      .phone-card.left {
+        left: 22px;
+      }
+
+      .phone-card.detail {
+        right: 18px;
+      }
+
+      .section {
+        padding: 18px;
+        border-radius: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <div class="site-shell">
     <header class="topbar">
-      <a class="brand" href="#top" aria-label="ShadowRank home">S-RANK</a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#protocol">Protocol</a>
-        <a href="#systems">Systems</a>
-        <a href="#join">Join</a>
-      </nav>
+      <div class="brand">
+        <img class="brand-mark" src="branding/app_logo_new.jpg" alt="S Rank logo">
+        <div class="brand-copy">
+          <strong>S RANK</strong>
+          <span>Fitness. Discipline. Progress.</span>
+        </div>
+      </div>
+
       <a
-        class="top-cta"
-        href="https://discord.gg/VRdCzjVrn"
+        class="pill-btn"
+        href="https://discord.gg/A7SZ8zzt"
         target="_blank"
-        rel="noopener noreferrer"
-      >
-        Discord
-      </a>
+        rel="noreferrer"
+      >Join Discord</a>
     </header>
 
-    <main class="page" id="top">
-      <section class="hero">
-        <div class="hero-copy reveal">
-          <p class="status-line">
-            <span class="status-dot"></span>
-            SYSTEM ONLINE // FIRST AWAKENING 2026
-          </p>
-          <h1>SHADOWRANK</h1>
-          <p class="lead">Real life. Real quests. Real leveling.</p>
-          <p class="hero-text">
-            ShadowRank turns discipline into progression. Every completed mission feeds your profile with
-            XP, rank momentum, and visible status.
-          </p>
+    <section id="browser-card" class="browser-card" aria-live="polite">
+      <div class="browser-kicker">In-App Browser Detected</div>
+      <h2 id="browser-title" class="browser-title">Open S Rank in your browser</h2>
+      <div id="browser-body" class="browser-body">
+        For the cleanest experience, open this page in your browser and then join Discord for early access.
+      </div>
+      <div class="browser-steps">
+        <div class="browser-step">
+          <span class="browser-step-index">1</span>
+          <span>Tap the three dots in the top corner.</span>
+        </div>
+        <div class="browser-step">
+          <span class="browser-step-index">2</span>
+          <span>Choose <strong>Open in browser</strong>.</span>
+        </div>
+        <div class="browser-step">
+          <span class="browser-step-index">3</span>
+          <span>Come back here and join the Discord to secure early access.</span>
+        </div>
+      </div>
+      <div class="browser-actions">
+        <a
+          class="pill-btn primary"
+          href="https://discord.gg/A7SZ8zzt"
+          target="_blank"
+          rel="noreferrer"
+        >Join Early Access</a>
+      </div>
+    </section>
 
-          <div class="cta-row">
-            <a
-              class="btn btn-primary"
-              href="https://discord.gg/VRdCzjVrn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Join Discord
-            </a>
-            <a
-              class="btn btn-secondary"
-              href="https://shadowrank.fillout.com/t/4o3W3wMPakus"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Join Waitlist
-            </a>
-          </div>
+    <main class="hero">
+      <section class="hero-copy">
+        <div class="eyebrow">The New S Rank Experience</div>
+        <h1 class="hero-title">TRAIN LIKE IT<br>MEANS SOMETHING</h1>
+        <p class="hero-subtitle">
+          S Rank turns goals into quests, effort into progress, and consistency into
+          real growth. Built in the new black-and-white style, with guided workouts,
+          cleaner focus, and a sharper system.
+        </p>
 
-          <ul class="proof-list" aria-label="Core pillars">
-            <li>Daily quest loops</li>
-            <li>RPG rank progression</li>
-            <li>Competitive identity</li>
-          </ul>
+        <div class="hero-actions">
+          <a
+            class="pill-btn primary"
+            href="https://discord.gg/A7SZ8zzt"
+            target="_blank"
+            rel="noreferrer"
+          >Join Discord For Early Access</a>
+          <a class="pill-btn" href="#waitlist">Join Waitlist</a>
         </div>
 
-        <aside class="hero-panel reveal">
-          <article class="signal-card">
-            <p class="panel-label">Live Transmission</p>
-            <h2 id="statusTicker">Hunter calibration active</h2>
-            <p>
-              The System rewards consistency. Missing daily quests lowers momentum. Staying disciplined
-              compounds your edge.
-            </p>
-          </article>
-
-          <div class="snapshot-grid">
-            <article class="snapshot snapshot-a">
-              <h3>Quest Feed</h3>
-              <p>Daily tasks rotate automatically and reward consistency.</p>
-            </article>
-            <article class="snapshot snapshot-b">
-              <h3>Rank Layer</h3>
-              <p>Progress is tracked by real performance, not vanity taps.</p>
-            </article>
+        <div class="hero-points">
+          <div class="hero-point">
+            <strong>Guided Workouts</strong>
+            <span>Personalized sessions built from the real exercise library.</span>
           </div>
-        </aside>
-      </section>
-
-      <section class="protocol reveal" id="protocol">
-        <header class="section-head">
-          <p class="section-kicker">Awakening Protocol</p>
-          <h2>Your route from signup to rank climb</h2>
-        </header>
-        <div class="protocol-grid">
-          <article class="protocol-card">
-            <span>01</span>
-            <h3>Initialize Profile</h3>
-            <p>Claim your hunter identity, define objective, and lock your baseline.</p>
-          </article>
-          <article class="protocol-card">
-            <span>02</span>
-            <h3>Complete Daily Quests</h3>
-            <p>Stack completed missions each day to build XP and protect rank momentum.</p>
-          </article>
-          <article class="protocol-card">
-            <span>03</span>
-            <h3>Enter Competitive Loop</h3>
-            <p>Track your growth, compare performance, and climb among disciplined players.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="systems" id="systems">
-        <div class="systems-copy reveal">
-          <p class="section-kicker">Core Systems</p>
-          <h2>Built for players who train consistently</h2>
-          <p>
-            This is not a motivational wallpaper app. ShadowRank is a progression system with real
-            consequences, structured objectives, and persistent profile growth.
-          </p>
-          <div class="system-lines">
-            <p><strong>Rank Engine:</strong> output-backed progression, not random badges.</p>
-            <p><strong>Quest Rotation:</strong> fresh daily pressure to prevent autopilot.</p>
-            <p><strong>Identity Layer:</strong> your consistency becomes visible reputation.</p>
+          <div class="hero-point">
+            <strong>Cleaner System</strong>
+            <span>Dark monochrome UI, softer glass surfaces, clearer focus.</span>
           </div>
-        </div>
-        <div class="systems-panel reveal">
-          <article class="operator-note">
-            <h3>Operator Note</h3>
-            <p>
-              The gate is not open for everyone. Early access favors users who commit before launch.
-              Reserve your slot now.
-            </p>
-            <p class="signed">- The Architect</p>
-          </article>
-          <div class="systems-image" role="img" aria-label="First Awakening system card">
-            <p class="systems-image-kicker">System Ready</p>
-            <p class="systems-image-title">FIRST AWAKENING</p>
-            <p class="systems-image-sub">2026</p>
+          <div class="hero-point">
+            <strong>Early Access</strong>
+            <span>Join the Discord to get updates, drops, and launch access first.</span>
           </div>
         </div>
       </section>
 
-      <section class="join reveal" id="join">
-        <article class="join-card">
-          <h2>Claim your place before launch</h2>
-          <p>Enter Discord for updates and lock waitlist access for First Awakening rollout.</p>
-          <div class="join-actions">
-            <a
-              class="btn btn-primary"
-              href="https://discord.gg/VRdCzjVrn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Enter Discord
-            </a>
-            <a
-              class="btn btn-secondary"
-              href="https://shadowrank.fillout.com/t/4o3W3wMPakus"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Reserve Spot
-            </a>
+      <section class="hero-visual">
+        <div class="visual-stage">
+          <div class="quote-card">
+            <div class="quote-mark">“</div>
+            <div class="quote-text">
+              You already know there is something you want to build.
+              <br>
+              S Rank gives that effort structure, pressure, and momentum.
+            </div>
+            <div class="quote-mark">”</div>
           </div>
-        </article>
+
+          <div class="phone-card left">
+            <img src="branding/screenshot_3d.webp" alt="S Rank progress screen">
+          </div>
+          <div class="phone-card main">
+            <img src="branding/screenshot_home.webp" alt="S Rank app home screen">
+          </div>
+          <div class="phone-card detail">
+            <img src="branding/notification-preview.png" alt="S Rank notification preview">
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="footer-line"></div>
-      <div class="socials">
-        <a href="https://discord.gg/VRdCzjVrn" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"
-            />
-          </svg>
-        </a>
-        <a href="https://discord.gg/VRdCzjVrn" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
-            />
-          </svg>
-        </a>
-        <a href="https://discord.gg/VRdCzjVrn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1018.39 4.144a1.44 1.44 0 00-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 114.008 3.9921A3.9996 3.9996 0 018 12.0077"
-            />
-          </svg>
-        </a>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>BUILT TO FEEL LIKE THE APP</h2>
+          <p>
+            The website now follows the same direction: black background,
+            white hierarchy, glass surfaces, cleaner motion, and a more focused tone.
+          </p>
+        </div>
       </div>
-      <p>&copy; 2026 SHADOWRANK. All rights reserved.</p>
-    </footer>
 
-    <script src="./script.js"></script>
-  </body>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <strong>New Logo</strong>
+          <p>The updated S Rank mark is used across the site for a more consistent identity.</p>
+        </article>
+        <article class="feature-card">
+          <strong>Glass Layers</strong>
+          <p>Soft blurred cards and darker surfaces create the same premium feel as the app.</p>
+        </article>
+        <article class="feature-card">
+          <strong>Motion System</strong>
+          <p>Load-in rises, floating previews, and the TikTok browser notice animate with intention.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="waitlist" class="section">
+      <div class="section-head">
+        <div>
+          <h2>GET IN EARLY</h2>
+          <p>
+            Join the Discord for early access and updates, or leave your email if you want
+            the launch signal sent straight to you.
+          </p>
+        </div>
+      </div>
+
+      <div class="signup-grid">
+        <div class="signup-card">
+          <div class="card-kicker">Waitlist</div>
+          <h3 class="card-title">JOIN THE LAUNCH LIST</h3>
+          <p class="card-desc">
+            Leave your email and we will notify you when the next public wave opens.
+          </p>
+
+          <form id="waitlist-form" class="waitlist-form">
+            <input
+              id="email"
+              class="email"
+              type="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            >
+            <button id="submit" class="pill-btn primary" type="submit">Join Waitlist</button>
+          </form>
+          <div id="status" class="status" role="status" aria-live="polite"></div>
+        </div>
+
+        <aside class="discord-card">
+          <div class="card-kicker">Discord</div>
+          <h3 class="card-title">EARLY ACCESS LIVES HERE</h3>
+          <p class="card-desc">
+            The Discord is where we drop updates, early access news, testing rounds,
+            and direct community feedback.
+          </p>
+
+          <div class="discord-list">
+            <div>Early access announcements and test waves.</div>
+            <div>Direct feedback loop with the app while it evolves.</div>
+            <div>Cleaner launch path if you came from TikTok or another in-app browser.</div>
+          </div>
+
+          <a
+            class="pill-btn primary"
+            href="https://discord.gg/A7SZ8zzt"
+            target="_blank"
+            rel="noreferrer"
+          >Join Discord</a>
+
+          <div class="footer-note">
+            Link: https://discord.gg/A7SZ8zzt
+          </div>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import {
+      getFirestore,
+      doc,
+      setDoc,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBrn4iFRo0ylO2fJYMHO9cOQm_HUsS9dOM",
+      authDomain: "web-app-e2945.firebaseapp.com",
+      projectId: "web-app-e2945",
+      storageBucket: "web-app-e2945.firebasestorage.app",
+      messagingSenderId: "291473882522",
+      appId: "1:291473882522:web:3dca8f0a599ab4173e0e23",
+      measurementId: "G-MVHF49DED3"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const form = document.getElementById("waitlist-form");
+    const emailInput = document.getElementById("email");
+    const submitBtn = document.getElementById("submit");
+    const status = document.getElementById("status");
+
+    const browserCard = document.getElementById("browser-card");
+    const browserTitle = document.getElementById("browser-title");
+    const browserBody = document.getElementById("browser-body");
+
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+    const setStatus = (message, ok) => {
+      status.textContent = message || "";
+      status.className = "status " + (ok ? "ok" : "err");
+    };
+
+    const detectInAppSource = () => {
+      const ua = navigator.userAgent || "";
+      const source = ua.toLowerCase();
+
+      if (source.includes("tiktok") || source.includes("musical_ly") || source.includes("bytedance")) {
+        return "TikTok";
+      }
+      if (source.includes("instagram")) {
+        return "Instagram";
+      }
+      if (source.includes("fb_iab") || source.includes("fban") || source.includes("fbav") || source.includes("facebook")) {
+        return "Facebook";
+      }
+      return null;
+    };
+
+    const inAppSource = detectInAppSource();
+    if (inAppSource) {
+      browserTitle.textContent = `We've detected you're on ${inAppSource}`;
+      browserBody.textContent =
+        `Open S Rank in your browser for the full experience, then join the Discord to secure early access.`;
+      browserCard.classList.add("is-visible");
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const email = emailInput.value.trim().toLowerCase();
+
+      if (!emailPattern.test(email)) {
+        setStatus("Enter a valid email address.", false);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Joining...";
+      setStatus("", false);
+
+      try {
+        await setDoc(
+          doc(db, "waitlist", email),
+          {
+            email,
+            createdAt: serverTimestamp(),
+            platform: "web",
+            source: inAppSource ? `website_${inAppSource.toLowerCase()}_browser_notice` : "website_landing_page"
+          },
+          { merge: true }
+        );
+        setStatus("You are on the list. We will notify you when access opens.", true);
+        emailInput.value = "";
+      } catch (error) {
+        console.error("[WAITLIST] Registration failed:", error);
+        setStatus("Could not register right now. Please try again.", false);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Join Waitlist";
+      }
+    });
+  </script>
+</body>
 </html>
