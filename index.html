@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="S Rank is the new fitness system built around guided workouts, cleaner focus, and real progress. Join Discord for early access."
+    content="S Rank is a fitness app focused on guided workouts, discipline, and real progress. Join Discord for early access."
   >
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -24,15 +24,15 @@
   >
   <style>
     :root {
-      --bg: #000000;
-      --panel: rgba(0, 0, 0, 0.92);
-      --panel-soft: rgba(255, 255, 255, 0.02);
+      --bg: #000;
+      --panel: #070707;
+      --panel-2: #0d0d0d;
       --line: rgba(255, 255, 255, 0.08);
       --line-strong: rgba(255, 255, 255, 0.16);
-      --text: #ffffff;
+      --text: #fff;
       --muted: rgba(255, 255, 255, 0.68);
       --soft: rgba(255, 255, 255, 0.42);
-      --shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+      --shadow: 0 28px 72px rgba(0, 0, 0, 0.55);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
@@ -44,20 +44,22 @@
     body {
       margin: 0;
       min-height: 100%;
-      background: #000;
+      background:
+        radial-gradient(circle at top center, rgba(255, 255, 255, 0.045), transparent 24%),
+        #000;
       color: var(--text);
       font-family: "Rajdhani", system-ui, sans-serif;
-      scroll-behavior: smooth;
     }
 
     body {
       overflow-x: hidden;
       background-image:
-        radial-gradient(circle at top center, rgba(255, 255, 255, 0.05), transparent 28%),
-        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-      background-size: auto, 44px 44px, 44px 44px;
-      background-position: center top, center, center;
+        radial-gradient(circle at top center, rgba(255, 255, 255, 0.045), transparent 24%),
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(#000, #000);
+      background-size: auto, 46px 46px, 46px 46px, auto;
+      background-position: center top, center, center, center;
     }
 
     a {
@@ -65,28 +67,23 @@
       text-decoration: none;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
     .site {
-      width: min(1180px, calc(100% - 28px));
+      width: min(1120px, calc(100% - 24px));
       margin: 0 auto;
-      padding: 18px 0 72px;
+      padding: 16px 0 72px;
     }
 
     .fade-up {
       opacity: 0;
       transform: translateY(24px);
-      animation: fadeUp 800ms var(--ease) forwards;
+      animation: fadeUp 720ms var(--ease) forwards;
     }
 
-    .fade-up.delay-1 {
+    .delay-1 {
       animation-delay: 100ms;
     }
 
-    .fade-up.delay-2 {
+    .delay-2 {
       animation-delay: 180ms;
     }
 
@@ -100,7 +97,7 @@
     @keyframes scrollOpen {
       0% {
         opacity: 0;
-        transform: scaleY(0.18) translateY(-10px);
+        transform: scaleY(0.16) translateY(-10px);
       }
       100% {
         opacity: 1;
@@ -108,12 +105,14 @@
       }
     }
 
-    @keyframes floatCard {
+    @keyframes pulseLine {
       0%, 100% {
-        transform: translateY(0);
+        opacity: 0.35;
+        transform: scaleX(0.92);
       }
       50% {
-        transform: translateY(-10px);
+        opacity: 1;
+        transform: scaleX(1);
       }
     }
 
@@ -121,22 +120,28 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 14px;
       padding: 10px 0 18px;
     }
 
-    .wordmark {
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand strong {
       font-family: "Teko", sans-serif;
-      font-size: clamp(42px, 11vw, 68px);
+      font-size: clamp(40px, 10vw, 64px);
       line-height: 0.85;
       letter-spacing: 1px;
     }
 
-    .topbar-note {
+    .brand span {
       color: var(--soft);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 1.3px;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
     }
 
@@ -149,12 +154,12 @@
       border-radius: 999px;
       border: 1px solid var(--line-strong);
       background: transparent;
-      color: var(--text);
+      color: #fff;
       font-size: 16px;
       font-weight: 700;
       letter-spacing: 0.4px;
       cursor: pointer;
-      transition: transform 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease);
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
     }
 
     .pill-btn:hover {
@@ -164,16 +169,16 @@
 
     .pill-btn.primary {
       background: #fff;
-      color: #000;
       border-color: #fff;
-      box-shadow: 0 18px 50px rgba(255, 255, 255, 0.12);
+      color: #000;
+      box-shadow: 0 16px 44px rgba(255, 255, 255, 0.12);
     }
 
     .browser-card {
       display: none;
-      margin: 8px 0 24px;
+      margin: 6px 0 22px;
       padding: 20px;
-      border-radius: 32px;
+      border-radius: 30px;
       border: 1px solid var(--line);
       background: #080808;
       box-shadow: var(--shadow);
@@ -182,14 +187,14 @@
 
     .browser-card.is-visible {
       display: block;
-      animation: scrollOpen 720ms var(--ease) both;
+      animation: scrollOpen 700ms var(--ease) both;
     }
 
     .browser-card strong {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-family: "Teko", sans-serif;
-      font-size: clamp(36px, 8vw, 56px);
+      font-size: clamp(34px, 8vw, 54px);
       line-height: 0.94;
       letter-spacing: 0.8px;
     }
@@ -235,105 +240,126 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 0.96fr);
-      gap: 26px;
-      align-items: center;
-      padding: 10px 0 26px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+      gap: 20px;
+      align-items: stretch;
+      padding: 6px 0 18px;
+    }
+
+    .hero-copy,
+    .hero-card {
+      padding: 24px;
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.88);
+      box-shadow: var(--shadow);
     }
 
     .hero-copy h1 {
       margin: 0 0 14px;
       font-family: "Teko", sans-serif;
-      font-size: clamp(84px, 16vw, 170px);
+      font-size: clamp(74px, 14vw, 156px);
       line-height: 0.8;
       letter-spacing: 1px;
     }
 
     .hero-copy p {
-      max-width: 580px;
       margin: 0;
+      max-width: 560px;
       color: var(--muted);
-      font-size: clamp(19px, 2.4vw, 24px);
-      line-height: 1.46;
+      font-size: clamp(18px, 2.3vw, 24px);
+      line-height: 1.48;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 26px;
+      margin-top: 24px;
     }
 
-    .hero-panel {
-      position: relative;
-      min-height: 760px;
-      padding: 18px;
-      border-radius: 38px;
-      border: 1px solid var(--line);
-      background: rgba(0, 0, 0, 0.88);
-      box-shadow: var(--shadow);
+    .mini-points {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .mini-point {
+      padding: 16px 18px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .mini-point strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "Teko", sans-serif;
+      font-size: 30px;
+      line-height: 0.92;
+      letter-spacing: 0.6px;
+    }
+
+    .mini-point span {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .hero-card {
+      display: grid;
+      align-content: center;
+      min-height: 100%;
       overflow: hidden;
+      position: relative;
     }
 
     .quote-card {
-      padding: 26px 24px 18px;
-      border-radius: 30px;
+      padding: 28px 20px 22px;
+      border-radius: 28px;
       border: 1px solid rgba(255, 255, 255, 0.05);
       background: rgba(255, 255, 255, 0.015);
       text-align: center;
     }
 
     .quote-mark {
-      color: rgba(255, 255, 255, 0.38);
-      font-size: 68px;
-      line-height: 0.8;
+      color: rgba(255, 255, 255, 0.34);
       font-family: Georgia, serif;
+      font-size: 70px;
+      line-height: 0.82;
     }
 
     .quote-text {
-      margin: 8px 0 6px;
+      margin: 8px 0;
       color: rgba(255, 255, 255, 0.74);
-      font-size: 17px;
+      font-size: clamp(17px, 2.2vw, 22px);
       line-height: 1.7;
       font-style: italic;
     }
 
-    .shot-stack {
-      position: relative;
-      min-height: 470px;
-      margin-top: 18px;
+    .motion-lines {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
     }
 
-    .shot {
-      position: absolute;
-      border-radius: 34px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: #050505;
-      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.54);
-      animation: floatCard 8s ease-in-out infinite;
+    .motion-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      animation: pulseLine 3.2s ease-in-out infinite;
+      transform-origin: center;
     }
 
-    .shot img {
-      width: 100%;
-      height: auto;
+    .motion-line:nth-child(2) {
+      animation-delay: -1s;
     }
 
-    .shot-main {
-      width: min(58%, 310px);
-      right: 8%;
-      top: 12px;
-    }
-
-    .shot-side {
-      width: min(40%, 220px);
-      left: 6%;
-      bottom: 18px;
-      animation-delay: -2.8s;
+    .motion-line:nth-child(3) {
+      animation-delay: -2s;
     }
 
     .section {
-      margin-top: 24px;
+      margin-top: 20px;
       padding: 22px;
       border-radius: 34px;
       border: 1px solid var(--line);
@@ -344,7 +370,7 @@
     .section h2 {
       margin: 0 0 8px;
       font-family: "Teko", sans-serif;
-      font-size: clamp(44px, 8vw, 72px);
+      font-size: clamp(42px, 7vw, 70px);
       line-height: 0.9;
       letter-spacing: 0.8px;
     }
@@ -357,10 +383,18 @@
       max-width: 760px;
     }
 
-    .feature-grid {
+    .feature-grid,
+    .split {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .split {
+      grid-template-columns: 1fr 1fr;
     }
 
     .feature-card,
@@ -392,12 +426,6 @@
       line-height: 1.55;
     }
 
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
     .waitlist-form {
       display: grid;
       gap: 14px;
@@ -414,7 +442,7 @@
       font: 600 18px/1.2 "Rajdhani", sans-serif;
       padding: 0 24px;
       outline: none;
-      transition: border-color 180ms var(--ease), background 180ms var(--ease), box-shadow 180ms var(--ease);
+      transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease);
     }
 
     .email::placeholder {
@@ -433,7 +461,7 @@
     }
 
     .status.ok {
-      color: #ffffff;
+      color: #fff;
     }
 
     .status.err {
@@ -443,7 +471,7 @@
     .discord-list {
       display: grid;
       gap: 12px;
-      margin: 18px 0 18px;
+      margin: 18px 0;
     }
 
     .discord-list div {
@@ -469,20 +497,12 @@
       .split {
         grid-template-columns: 1fr;
       }
-
-      .hero-panel {
-        min-height: auto;
-      }
-
-      .shot-stack {
-        min-height: 340px;
-      }
     }
 
     @media (max-width: 720px) {
       .site {
-        width: min(100% - 20px, 100%);
-        padding-top: 12px;
+        width: min(100% - 16px, 100%);
+        padding-top: 10px;
       }
 
       .topbar {
@@ -490,48 +510,28 @@
         align-items: flex-start;
       }
 
-      .topbar .pill-btn {
+      .topbar .pill-btn,
+      .hero-actions .pill-btn,
+      .waitlist-form .pill-btn,
+      .browser-card .pill-btn,
+      .discord-card .pill-btn {
         width: 100%;
+      }
+
+      .hero-copy,
+      .hero-card,
+      .section,
+      .browser-card,
+      .feature-card,
+      .waitlist-card,
+      .discord-card {
+        padding: 18px;
+        border-radius: 28px;
       }
 
       .hero-actions {
         display: grid;
         grid-template-columns: 1fr;
-      }
-
-      .hero-actions .pill-btn {
-        width: 100%;
-      }
-
-      .browser-card,
-      .section,
-      .feature-card,
-      .waitlist-card,
-      .discord-card {
-        border-radius: 28px;
-      }
-
-      .hero-panel {
-        padding: 14px;
-        border-radius: 30px;
-      }
-
-      .quote-card {
-        padding: 22px 18px 14px;
-      }
-
-      .shot-stack {
-        min-height: 300px;
-      }
-
-      .shot-main {
-        width: 62%;
-        right: 4%;
-      }
-
-      .shot-side {
-        width: 44%;
-        left: 0;
       }
     }
   </style>
@@ -539,9 +539,9 @@
 <body>
   <div class="site">
     <header class="topbar fade-up">
-      <div>
-        <div class="wordmark">S RANK</div>
-        <div class="topbar-note">The New Black And White System</div>
+      <div class="brand">
+        <strong>S RANK</strong>
+        <span>Fitness App</span>
       </div>
       <a
         class="pill-btn"
@@ -553,8 +553,8 @@
 
     <section id="browser-card" class="browser-card" aria-live="polite">
       <strong id="browser-title">HI! WE'VE DETECTED THAT YOU'RE ON TIKTOK.</strong>
-      <p id="browser-body">
-        To open S Rank properly and join early access, please open this page in your browser first.
+      <p>
+        To open S Rank properly:
       </p>
       <div class="browser-steps">
         <div class="browser-step">
@@ -580,11 +580,12 @@
 
     <section class="hero">
       <div class="hero-copy fade-up delay-1">
-        <h1>S RANK</h1>
+        <h1>FITNESS,<br>WITH<br>STRUCTURE.</h1>
         <p>
-          Guided workouts. Cleaner focus. Real progression.
-          Built for people who want structure, pressure, and momentum.
+          Guided workouts, cleaner focus, and a stronger habit loop.
+          S Rank is built for people who want to train with consistency.
         </p>
+
         <div class="hero-actions">
           <a
             class="pill-btn primary"
@@ -594,48 +595,59 @@
           >Join Discord For Early Access</a>
           <a class="pill-btn" href="#waitlist">Join Waitlist</a>
         </div>
+
+        <div class="mini-points">
+          <div class="mini-point">
+            <strong>GUIDED WORKOUTS</strong>
+            <span>Built around real exercises and a cleaner training flow.</span>
+          </div>
+          <div class="mini-point">
+            <strong>BLACK / WHITE UI</strong>
+            <span>Darker layout, stronger contrast, less noise, better focus.</span>
+          </div>
+          <div class="mini-point">
+            <strong>EARLY ACCESS</strong>
+            <span>Discord gets updates, testing rounds, and launch news first.</span>
+          </div>
+        </div>
       </div>
 
-      <div class="hero-panel fade-up delay-2">
+      <div class="hero-card fade-up delay-2">
         <div class="quote-card">
           <div class="quote-mark">&ldquo;</div>
           <div class="quote-text">
             You already know there is something you want to do.
             <br>
-            S Rank turns that effort into structure, progress, and consistency.
+            S Rank helps turn that into routine, progress, and consistency.
           </div>
           <div class="quote-mark">&rdquo;</div>
         </div>
 
-        <div class="shot-stack">
-          <div class="shot shot-side">
-            <img src="./branding/screenshot_3d.png" alt="S Rank app progress screen">
-          </div>
-          <div class="shot shot-main">
-            <img src="./branding/screenshot_home.png" alt="S Rank app home screen">
-          </div>
+        <div class="motion-lines" aria-hidden="true">
+          <div class="motion-line"></div>
+          <div class="motion-line"></div>
+          <div class="motion-line"></div>
         </div>
       </div>
     </section>
 
     <section class="section fade-up delay-1">
-      <h2>WHY PEOPLE JOIN EARLY</h2>
+      <h2>WHY JOIN EARLY</h2>
       <p>
-        The app is moving into a cleaner black-and-white direction with guided workout flow,
-        sharper focus, and a more premium system.
+        We are rebuilding the experience around fitness, guided workouts, and a cleaner visual direction.
       </p>
       <div class="feature-grid">
         <article class="feature-card">
-          <strong>GUIDED WORKOUTS</strong>
-          <p>Exercises come from the real workout library with proper guided flow.</p>
+          <strong>BETTER GUIDANCE</strong>
+          <p>Workouts feel clearer, more direct, and easier to follow.</p>
         </article>
         <article class="feature-card">
-          <strong>CLEANER UI</strong>
-          <p>Black background, white hierarchy, softer glass layers, better clarity.</p>
+          <strong>LESS CLUTTER</strong>
+          <p>The new visual direction is sharper, darker, and easier to focus on.</p>
         </article>
         <article class="feature-card">
-          <strong>EARLY ACCESS</strong>
-          <p>Discord gets updates, testing access, and launch news first.</p>
+          <strong>FIRST ACCESS</strong>
+          <p>Discord members hear about testing and access before everyone else.</p>
         </article>
       </div>
     </section>
@@ -643,13 +655,13 @@
     <section id="waitlist" class="section fade-up delay-2">
       <h2>GET IN EARLY</h2>
       <p>
-        Join Discord for early access, or leave your email and we will send the launch signal to you.
+        Join Discord for early access, or leave your email and we will notify you when the next public wave opens.
       </p>
 
       <div class="split">
         <div class="waitlist-card">
           <strong>JOIN THE WAITLIST</strong>
-          <p>Leave your email and we will notify you when the next public wave opens.</p>
+          <p>Leave your email and we will send you the launch update.</p>
 
           <form id="waitlist-form" class="waitlist-form">
             <input
@@ -667,11 +679,11 @@
 
         <aside class="discord-card">
           <strong>JOIN DISCORD</strong>
-          <p>The Discord is where we share early access updates, testing rounds, and launch drops.</p>
+          <p>Discord is where we share early access updates, testing news, and launch drops.</p>
 
           <div class="discord-list">
-            <div>Early access announcements and test waves.</div>
-            <div>Direct feedback while the app evolves.</div>
+            <div>Early access updates.</div>
+            <div>Testing rounds and feedback.</div>
             <div>Better access path if you came from TikTok or another in-app browser.</div>
           </div>
 
@@ -728,8 +740,15 @@
       const ua = (navigator.userAgent || "").toLowerCase();
       const ref = (document.referrer || "").toLowerCase();
       const params = new URLSearchParams(window.location.search);
-      const forced = params.get("source");
-      if (forced) return forced;
+      const forcedSource = params.get("source");
+      const forcedNotice = params.get("notice");
+
+      if (forcedNotice === "1" && forcedSource) {
+        return forcedSource;
+      }
+      if (forcedNotice === "1") {
+        return "TikTok";
+      }
       if (
         ua.includes("tiktok") ||
         ua.includes("musical_ly") ||
