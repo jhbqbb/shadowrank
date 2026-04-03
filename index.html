@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <base href="$FLUTTER_BASE_HREF">
   <meta charset="UTF-8">
@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="S Rank turns goals into quests, effort into progress, and consistency into growth. Join Discord for early access."
+    content="S Rank is the new fitness system built around guided workouts, cleaner focus, and real progress. Join Discord for early access."
   >
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="S Rank">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
   <link rel="icon" type="image/png" href="favicon.png">
-  <title>S Rank</title>
   <link rel="manifest" href="manifest.json">
+  <title>S Rank</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -25,20 +25,14 @@
   <style>
     :root {
       --bg: #000000;
-      --bg-soft: #0e0e0e;
-      --bg-card: rgba(28, 28, 28, 0.72);
-      --bg-card-strong: rgba(32, 32, 32, 0.9);
+      --panel: rgba(0, 0, 0, 0.92);
+      --panel-soft: rgba(255, 255, 255, 0.02);
       --line: rgba(255, 255, 255, 0.08);
-      --line-strong: rgba(255, 255, 255, 0.14);
+      --line-strong: rgba(255, 255, 255, 0.16);
       --text: #ffffff;
-      --muted: rgba(255, 255, 255, 0.66);
+      --muted: rgba(255, 255, 255, 0.68);
       --soft: rgba(255, 255, 255, 0.42);
-      --quote: #687380;
-      --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-      --blur: blur(16px);
-      --radius-xl: 34px;
-      --radius-lg: 26px;
-      --radius-md: 18px;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
@@ -50,10 +44,7 @@
     body {
       margin: 0;
       min-height: 100%;
-      background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.04), transparent 24%),
-        var(--bg);
+      background: #000;
       color: var(--text);
       font-family: "Rajdhani", system-ui, sans-serif;
       scroll-behavior: smooth;
@@ -61,6 +52,12 @@
 
     body {
       overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at top center, rgba(255, 255, 255, 0.05), transparent 28%),
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: auto, 44px 44px, 44px 44px;
+      background-position: center top, center, center;
     }
 
     a {
@@ -73,258 +70,37 @@
       max-width: 100%;
     }
 
-    .noise,
-    .grid,
-    .aurora {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .noise {
-      opacity: 0.04;
-      background-image:
-        radial-gradient(rgba(255, 255, 255, 0.35) 0.5px, transparent 0.5px);
-      background-size: 4px 4px;
-    }
-
-    .grid {
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(circle at center, black 32%, transparent 85%);
-      opacity: 0.4;
-    }
-
-    .aurora::before,
-    .aurora::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(80px);
-      opacity: 0.14;
-      animation: floatGlow 16s ease-in-out infinite alternate;
-    }
-
-    .aurora::before {
-      width: 420px;
-      height: 420px;
-      background: #ffffff;
-      top: -120px;
-      left: -140px;
-    }
-
-    .aurora::after {
-      width: 340px;
-      height: 340px;
-      background: #7e8792;
-      right: -80px;
-      top: 20%;
-      animation-delay: -6s;
-    }
-
-    @keyframes floatGlow {
-      from {
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-      to {
-        transform: translate3d(30px, -20px, 0) scale(1.08);
-      }
-    }
-
-    .site-shell {
-      position: relative;
-      z-index: 1;
-      width: min(1200px, calc(100% - 32px));
+    .site {
+      width: min(1180px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 24px 0 80px;
+      padding: 18px 0 72px;
     }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 8px 0 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand-mark {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-      padding: 8px;
-      backdrop-filter: var(--blur);
-    }
-
-    .brand-copy strong {
-      display: block;
-      font-family: "Teko", sans-serif;
-      font-size: 30px;
-      line-height: 0.9;
-      letter-spacing: 1.2px;
-    }
-
-    .brand-copy span {
-      display: block;
-      margin-top: 4px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      color: var(--soft);
-    }
-
-    .pill-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 0 24px;
-      border-radius: 999px;
-      border: 1px solid var(--line-strong);
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: var(--blur);
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-      transition: transform 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease);
-      cursor: pointer;
-    }
-
-    .pill-btn:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.22);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .pill-btn.primary {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-      box-shadow: 0 14px 36px rgba(255, 255, 255, 0.12);
-    }
-
-    .browser-card {
-      display: none;
-      margin: 14px 0 28px;
-      padding: 18px;
-      border-radius: 28px;
-      border: 1px solid var(--line);
-      background: rgba(26, 26, 26, 0.88);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow);
-      transform-origin: top center;
-      animation: unfoldIn 700ms var(--ease) both;
-    }
-
-    .browser-card.is-visible {
-      display: grid;
-      gap: 16px;
-    }
-
-    .browser-kicker {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--soft);
-    }
-
-    .browser-title {
-      margin: 0;
-      font-family: "Teko", sans-serif;
-      font-size: clamp(34px, 7vw, 48px);
-      line-height: 0.95;
-      letter-spacing: 1.2px;
-    }
-
-    .browser-body {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.55;
-    }
-
-    .browser-steps {
-      display: grid;
-      gap: 10px;
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .browser-step {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.45;
-    }
-
-    .browser-step-index {
-      flex: 0 0 28px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .browser-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.96fr);
-      gap: 28px;
-      align-items: center;
-      min-height: calc(100dvh - 150px);
-      padding: 18px 0 48px;
-    }
-
-    .hero-copy,
-    .hero-visual {
+    .fade-up {
       opacity: 0;
-      transform: translateY(26px);
-      animation: riseIn 850ms var(--ease) forwards;
+      transform: translateY(24px);
+      animation: fadeUp 800ms var(--ease) forwards;
     }
 
-    .hero-visual {
-      animation-delay: 130ms;
+    .fade-up.delay-1 {
+      animation-delay: 100ms;
     }
 
-    @keyframes riseIn {
+    .fade-up.delay-2 {
+      animation-delay: 180ms;
+    }
+
+    @keyframes fadeUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    @keyframes unfoldIn {
+    @keyframes scrollOpen {
       0% {
         opacity: 0;
-        transform: scaleY(0.15) translateY(-14px);
+        transform: scaleY(0.18) translateY(-10px);
       }
       100% {
         opacity: 1;
@@ -332,37 +108,153 @@
       }
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 38px;
-      padding: 0 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--soft);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      backdrop-filter: var(--blur);
+    @keyframes floatCard {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
-    .hero-title {
-      margin: 18px 0 14px;
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0 18px;
+    }
+
+    .wordmark {
       font-family: "Teko", sans-serif;
-      font-size: clamp(72px, 13vw, 150px);
-      line-height: 0.82;
+      font-size: clamp(42px, 11vw, 68px);
+      line-height: 0.85;
       letter-spacing: 1px;
     }
 
-    .hero-subtitle {
-      max-width: 620px;
+    .topbar-note {
+      color: var(--soft);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: transparent;
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      transition: transform 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease);
+    }
+
+    .pill-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.24);
+    }
+
+    .pill-btn.primary {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+      box-shadow: 0 18px 50px rgba(255, 255, 255, 0.12);
+    }
+
+    .browser-card {
+      display: none;
+      margin: 8px 0 24px;
+      padding: 20px;
+      border-radius: 32px;
+      border: 1px solid var(--line);
+      background: #080808;
+      box-shadow: var(--shadow);
+      transform-origin: top center;
+    }
+
+    .browser-card.is-visible {
+      display: block;
+      animation: scrollOpen 720ms var(--ease) both;
+    }
+
+    .browser-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-family: "Teko", sans-serif;
+      font-size: clamp(36px, 8vw, 56px);
+      line-height: 0.94;
+      letter-spacing: 0.8px;
+    }
+
+    .browser-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .browser-steps {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .browser-step {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.02);
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .browser-index {
+      flex: 0 0 28px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.96fr);
+      gap: 26px;
+      align-items: center;
+      padding: 10px 0 26px;
+    }
+
+    .hero-copy h1 {
+      margin: 0 0 14px;
+      font-family: "Teko", sans-serif;
+      font-size: clamp(84px, 16vw, 170px);
+      line-height: 0.8;
+      letter-spacing: 1px;
+    }
+
+    .hero-copy p {
+      max-width: 580px;
       margin: 0;
       color: var(--muted);
-      font-size: clamp(18px, 2.4vw, 24px);
-      line-height: 1.45;
+      font-size: clamp(19px, 2.4vw, 24px);
+      line-height: 1.46;
     }
 
     .hero-actions {
@@ -372,279 +264,170 @@
       margin-top: 26px;
     }
 
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 26px;
-    }
-
-    .hero-point {
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--line);
-      backdrop-filter: var(--blur);
-    }
-
-    .hero-point strong {
-      display: block;
-      font-family: "Teko", sans-serif;
-      font-size: 28px;
-      line-height: 0.95;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-
-    .hero-point span {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.45;
-    }
-
-    .visual-stage {
+    .hero-panel {
       position: relative;
       min-height: 760px;
+      padding: 18px;
       border-radius: 38px;
       border: 1px solid var(--line);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
-        rgba(14, 14, 14, 0.84);
-      backdrop-filter: blur(20px);
+      background: rgba(0, 0, 0, 0.88);
       box-shadow: var(--shadow);
       overflow: hidden;
-    }
-
-    .visual-stage::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 30%),
-        linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.4));
-      pointer-events: none;
-    }
-
-    .phone-card {
-      position: absolute;
-      width: min(42vw, 260px);
-      border-radius: 32px;
-      overflow: hidden;
-      background: rgba(18, 18, 18, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      box-shadow: 0 34px 90px rgba(0, 0, 0, 0.46);
-      transform-style: preserve-3d;
-    }
-
-    .phone-card img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .phone-card.main {
-      top: 82px;
-      right: 64px;
-      transform: rotate(6deg);
-      animation: floatCardA 9s ease-in-out infinite;
-    }
-
-    .phone-card.left {
-      left: 46px;
-      bottom: 120px;
-      width: min(34vw, 214px);
-      transform: rotate(-10deg);
-      animation: floatCardB 11s ease-in-out infinite;
-    }
-
-    .phone-card.detail {
-      right: 36px;
-      bottom: 42px;
-      width: min(26vw, 180px);
-      transform: rotate(-4deg);
-      animation: floatCardC 10s ease-in-out infinite;
-    }
-
-    @keyframes floatCardA {
-      0%, 100% { transform: rotate(6deg) translateY(0); }
-      50% { transform: rotate(4deg) translateY(-12px); }
-    }
-
-    @keyframes floatCardB {
-      0%, 100% { transform: rotate(-10deg) translateY(0); }
-      50% { transform: rotate(-8deg) translateY(-16px); }
-    }
-
-    @keyframes floatCardC {
-      0%, 100% { transform: rotate(-4deg) translateY(0); }
-      50% { transform: rotate(-2deg) translateY(-10px); }
     }
 
     .quote-card {
-      position: absolute;
-      left: 32px;
-      right: 32px;
-      top: 26px;
-      padding: 26px 24px 20px;
-      border-radius: 28px;
-      background: rgba(31, 31, 31, 0.92);
+      padding: 26px 24px 18px;
+      border-radius: 30px;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
-      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.015);
+      text-align: center;
     }
 
     .quote-mark {
-      text-align: center;
-      font-family: Georgia, serif;
-      font-size: 62px;
+      color: rgba(255, 255, 255, 0.38);
+      font-size: 68px;
       line-height: 0.8;
-      color: var(--quote);
+      font-family: Georgia, serif;
     }
 
     .quote-text {
-      margin: 8px 0 10px;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.65;
+      margin: 8px 0 6px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 17px;
+      line-height: 1.7;
       font-style: italic;
-      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .shot-stack {
+      position: relative;
+      min-height: 470px;
+      margin-top: 18px;
+    }
+
+    .shot {
+      position: absolute;
+      border-radius: 34px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #050505;
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.54);
+      animation: floatCard 8s ease-in-out infinite;
+    }
+
+    .shot img {
+      width: 100%;
+      height: auto;
+    }
+
+    .shot-main {
+      width: min(58%, 310px);
+      right: 8%;
+      top: 12px;
+    }
+
+    .shot-side {
+      width: min(40%, 220px);
+      left: 6%;
+      bottom: 18px;
+      animation-delay: -2.8s;
     }
 
     .section {
-      margin-top: 38px;
-      padding: 24px;
-      border-radius: var(--radius-xl);
+      margin-top: 24px;
+      padding: 22px;
+      border-radius: 34px;
       border: 1px solid var(--line);
-      background: rgba(18, 18, 18, 0.7);
-      backdrop-filter: blur(14px);
+      background: rgba(0, 0, 0, 0.9);
       box-shadow: var(--shadow);
     }
 
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .section-head h2 {
-      margin: 0;
+    .section h2 {
+      margin: 0 0 8px;
       font-family: "Teko", sans-serif;
-      font-size: clamp(40px, 6vw, 66px);
+      font-size: clamp(44px, 8vw, 72px);
       line-height: 0.9;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
     }
 
-    .section-head p {
-      margin: 8px 0 0;
+    .section > p {
+      margin: 0 0 18px;
       color: var(--muted);
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1.5;
-      max-width: 620px;
+      max-width: 760px;
     }
 
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
-    .feature-card {
+    .feature-card,
+    .waitlist-card,
+    .discord-card {
       padding: 22px;
-      border-radius: 26px;
-      background: rgba(255, 255, 255, 0.03);
+      border-radius: 30px;
       border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+      background: rgba(255, 255, 255, 0.015);
     }
 
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .feature-card strong {
+    .feature-card strong,
+    .waitlist-card strong,
+    .discord-card strong {
       display: block;
       margin-bottom: 10px;
       font-family: "Teko", sans-serif;
-      font-size: 30px;
-      line-height: 0.95;
-      letter-spacing: 0.8px;
+      font-size: clamp(34px, 7vw, 54px);
+      line-height: 0.92;
+      letter-spacing: 0.6px;
     }
 
-    .feature-card p {
+    .feature-card p,
+    .waitlist-card p,
+    .discord-card p {
       margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .signup-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .signup-card,
-    .discord-card {
-      padding: 24px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .card-kicker {
-      margin-bottom: 10px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--soft);
-    }
-
-    .card-title {
-      margin: 0 0 10px;
-      font-family: "Teko", sans-serif;
-      font-size: 42px;
-      line-height: 0.95;
-      letter-spacing: 0.8px;
-    }
-
-    .card-desc {
-      margin: 0 0 18px;
       color: var(--muted);
       font-size: 17px;
       line-height: 1.55;
     }
 
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
     .waitlist-form {
       display: grid;
-      gap: 12px;
+      gap: 14px;
+      margin-top: 18px;
     }
 
     .email {
       width: 100%;
-      min-height: 56px;
-      border-radius: 18px;
+      min-height: 62px;
+      border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text);
-      font: 600 17px/1.2 "Rajdhani", sans-serif;
-      padding: 0 18px;
+      background: rgba(255, 255, 255, 0.02);
+      color: #fff;
+      font: 600 18px/1.2 "Rajdhani", sans-serif;
+      padding: 0 24px;
       outline: none;
-      transition: border-color 150ms var(--ease), background 150ms var(--ease), box-shadow 150ms var(--ease);
+      transition: border-color 180ms var(--ease), background 180ms var(--ease), box-shadow 180ms var(--ease);
+    }
+
+    .email::placeholder {
+      color: rgba(255, 255, 255, 0.42);
     }
 
     .email:focus {
-      border-color: rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.04);
     }
 
     .status {
-      min-height: 24px;
+      min-height: 20px;
       font-size: 14px;
       font-weight: 700;
     }
@@ -654,111 +437,112 @@
     }
 
     .status.err {
-      color: #ff8d8d;
+      color: #ffb3b3;
     }
 
     .discord-list {
       display: grid;
-      gap: 10px;
-      margin: 18px 0 22px;
+      gap: 12px;
+      margin: 18px 0 18px;
     }
 
     .discord-list div {
       padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.04);
+      border-radius: 24px;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.02);
       color: var(--muted);
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.45;
     }
 
     .footer-note {
-      margin-top: 18px;
+      margin-top: 14px;
       color: var(--soft);
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
-    @media (max-width: 1080px) {
+    @media (max-width: 980px) {
       .hero,
-      .signup-grid,
-      .feature-grid {
+      .feature-grid,
+      .split {
         grid-template-columns: 1fr;
       }
 
-      .visual-stage {
-        min-height: 760px;
+      .hero-panel {
+        min-height: auto;
+      }
+
+      .shot-stack {
+        min-height: 340px;
       }
     }
 
     @media (max-width: 720px) {
-      .site-shell {
-        width: min(100% - 24px, 100%);
-        padding-top: 18px;
+      .site {
+        width: min(100% - 20px, 100%);
+        padding-top: 12px;
       }
 
       .topbar {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
       }
 
-      .hero {
-        min-height: auto;
-        padding-top: 10px;
+      .topbar .pill-btn {
+        width: 100%;
       }
 
-      .hero-title {
-        font-size: clamp(64px, 22vw, 112px);
-      }
-
-      .hero-points {
+      .hero-actions {
+        display: grid;
         grid-template-columns: 1fr;
       }
 
-      .visual-stage {
-        min-height: 680px;
+      .hero-actions .pill-btn {
+        width: 100%;
+      }
+
+      .browser-card,
+      .section,
+      .feature-card,
+      .waitlist-card,
+      .discord-card {
+        border-radius: 28px;
+      }
+
+      .hero-panel {
+        padding: 14px;
+        border-radius: 30px;
       }
 
       .quote-card {
-        left: 16px;
-        right: 16px;
+        padding: 22px 18px 14px;
       }
 
-      .phone-card.main {
-        right: 28px;
+      .shot-stack {
+        min-height: 300px;
       }
 
-      .phone-card.left {
-        left: 22px;
+      .shot-main {
+        width: 62%;
+        right: 4%;
       }
 
-      .phone-card.detail {
-        right: 18px;
-      }
-
-      .section {
-        padding: 18px;
-        border-radius: 26px;
+      .shot-side {
+        width: 44%;
+        left: 0;
       }
     }
   </style>
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="grid" aria-hidden="true"></div>
-  <div class="aurora" aria-hidden="true"></div>
-
-  <div class="site-shell">
-    <header class="topbar">
-      <div class="brand">
-        <img class="brand-mark" src="branding/app_logo_new.jpg" alt="S Rank logo">
-        <div class="brand-copy">
-          <strong>S RANK</strong>
-          <span>Fitness. Discipline. Progress.</span>
-        </div>
+  <div class="site">
+    <header class="topbar fade-up">
+      <div>
+        <div class="wordmark">S RANK</div>
+        <div class="topbar-note">The New Black And White System</div>
       </div>
-
       <a
         class="pill-btn"
         href="https://discord.gg/A7SZ8zzt"
@@ -768,45 +552,39 @@
     </header>
 
     <section id="browser-card" class="browser-card" aria-live="polite">
-      <div class="browser-kicker">In-App Browser Detected</div>
-      <h2 id="browser-title" class="browser-title">Open S Rank in your browser</h2>
-      <div id="browser-body" class="browser-body">
-        For the cleanest experience, open this page in your browser and then join Discord for early access.
-      </div>
+      <strong id="browser-title">HI! WE'VE DETECTED THAT YOU'RE ON TIKTOK.</strong>
+      <p id="browser-body">
+        To open S Rank properly and join early access, please open this page in your browser first.
+      </p>
       <div class="browser-steps">
         <div class="browser-step">
-          <span class="browser-step-index">1</span>
-          <span>Tap the three dots in the top corner.</span>
+          <span class="browser-index">1</span>
+          <span>Tap the three dots in the top right corner.</span>
         </div>
         <div class="browser-step">
-          <span class="browser-step-index">2</span>
-          <span>Choose <strong>Open in browser</strong>.</span>
+          <span class="browser-index">2</span>
+          <span>Tap <strong>Open in browser</strong>.</span>
         </div>
         <div class="browser-step">
-          <span class="browser-step-index">3</span>
-          <span>Come back here and join the Discord to secure early access.</span>
+          <span class="browser-index">3</span>
+          <span>Then join our Discord for early access.</span>
         </div>
       </div>
-      <div class="browser-actions">
-        <a
-          class="pill-btn primary"
-          href="https://discord.gg/A7SZ8zzt"
-          target="_blank"
-          rel="noreferrer"
-        >Join Early Access</a>
-      </div>
+      <a
+        class="pill-btn primary"
+        href="https://discord.gg/A7SZ8zzt"
+        target="_blank"
+        rel="noreferrer"
+      >Join Discord For Early Access</a>
     </section>
 
-    <main class="hero">
-      <section class="hero-copy">
-        <div class="eyebrow">The New S Rank Experience</div>
-        <h1 class="hero-title">TRAIN LIKE IT<br>MEANS SOMETHING</h1>
-        <p class="hero-subtitle">
-          S Rank turns goals into quests, effort into progress, and consistency into
-          real growth. Built in the new black-and-white style, with guided workouts,
-          cleaner focus, and a sharper system.
+    <section class="hero">
+      <div class="hero-copy fade-up delay-1">
+        <h1>S RANK</h1>
+        <p>
+          Guided workouts. Cleaner focus. Real progression.
+          Built for people who want structure, pressure, and momentum.
         </p>
-
         <div class="hero-actions">
           <a
             class="pill-btn primary"
@@ -816,93 +594,62 @@
           >Join Discord For Early Access</a>
           <a class="pill-btn" href="#waitlist">Join Waitlist</a>
         </div>
-
-        <div class="hero-points">
-          <div class="hero-point">
-            <strong>Guided Workouts</strong>
-            <span>Personalized sessions built from the real exercise library.</span>
-          </div>
-          <div class="hero-point">
-            <strong>Cleaner System</strong>
-            <span>Dark monochrome UI, softer glass surfaces, clearer focus.</span>
-          </div>
-          <div class="hero-point">
-            <strong>Early Access</strong>
-            <span>Join the Discord to get updates, drops, and launch access first.</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="hero-visual">
-        <div class="visual-stage">
-          <div class="quote-card">
-            <div class="quote-mark">“</div>
-            <div class="quote-text">
-              You already know there is something you want to build.
-              <br>
-              S Rank gives that effort structure, pressure, and momentum.
-            </div>
-            <div class="quote-mark">”</div>
-          </div>
-
-          <div class="phone-card left">
-            <img src="branding/screenshot_3d.webp" alt="S Rank progress screen">
-          </div>
-          <div class="phone-card main">
-            <img src="branding/screenshot_home.webp" alt="S Rank app home screen">
-          </div>
-          <div class="phone-card detail">
-            <img src="branding/notification-preview.png" alt="S Rank notification preview">
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <section class="section">
-      <div class="section-head">
-        <div>
-          <h2>BUILT TO FEEL LIKE THE APP</h2>
-          <p>
-            The website now follows the same direction: black background,
-            white hierarchy, glass surfaces, cleaner motion, and a more focused tone.
-          </p>
-        </div>
       </div>
 
+      <div class="hero-panel fade-up delay-2">
+        <div class="quote-card">
+          <div class="quote-mark">&ldquo;</div>
+          <div class="quote-text">
+            You already know there is something you want to do.
+            <br>
+            S Rank turns that effort into structure, progress, and consistency.
+          </div>
+          <div class="quote-mark">&rdquo;</div>
+        </div>
+
+        <div class="shot-stack">
+          <div class="shot shot-side">
+            <img src="./branding/screenshot_3d.png" alt="S Rank app progress screen">
+          </div>
+          <div class="shot shot-main">
+            <img src="./branding/screenshot_home.png" alt="S Rank app home screen">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-up delay-1">
+      <h2>WHY PEOPLE JOIN EARLY</h2>
+      <p>
+        The app is moving into a cleaner black-and-white direction with guided workout flow,
+        sharper focus, and a more premium system.
+      </p>
       <div class="feature-grid">
         <article class="feature-card">
-          <strong>New Logo</strong>
-          <p>The updated S Rank mark is used across the site for a more consistent identity.</p>
+          <strong>GUIDED WORKOUTS</strong>
+          <p>Exercises come from the real workout library with proper guided flow.</p>
         </article>
         <article class="feature-card">
-          <strong>Glass Layers</strong>
-          <p>Soft blurred cards and darker surfaces create the same premium feel as the app.</p>
+          <strong>CLEANER UI</strong>
+          <p>Black background, white hierarchy, softer glass layers, better clarity.</p>
         </article>
         <article class="feature-card">
-          <strong>Motion System</strong>
-          <p>Load-in rises, floating previews, and the TikTok browser notice animate with intention.</p>
+          <strong>EARLY ACCESS</strong>
+          <p>Discord gets updates, testing access, and launch news first.</p>
         </article>
       </div>
     </section>
 
-    <section id="waitlist" class="section">
-      <div class="section-head">
-        <div>
-          <h2>GET IN EARLY</h2>
-          <p>
-            Join the Discord for early access and updates, or leave your email if you want
-            the launch signal sent straight to you.
-          </p>
-        </div>
-      </div>
+    <section id="waitlist" class="section fade-up delay-2">
+      <h2>GET IN EARLY</h2>
+      <p>
+        Join Discord for early access, or leave your email and we will send the launch signal to you.
+      </p>
 
-      <div class="signup-grid">
-        <div class="signup-card">
-          <div class="card-kicker">Waitlist</div>
-          <h3 class="card-title">JOIN THE LAUNCH LIST</h3>
-          <p class="card-desc">
-            Leave your email and we will notify you when the next public wave opens.
-          </p>
+      <div class="split">
+        <div class="waitlist-card">
+          <strong>JOIN THE WAITLIST</strong>
+          <p>Leave your email and we will notify you when the next public wave opens.</p>
 
           <form id="waitlist-form" class="waitlist-form">
             <input
@@ -919,17 +666,13 @@
         </div>
 
         <aside class="discord-card">
-          <div class="card-kicker">Discord</div>
-          <h3 class="card-title">EARLY ACCESS LIVES HERE</h3>
-          <p class="card-desc">
-            The Discord is where we drop updates, early access news, testing rounds,
-            and direct community feedback.
-          </p>
+          <strong>JOIN DISCORD</strong>
+          <p>The Discord is where we share early access updates, testing rounds, and launch drops.</p>
 
           <div class="discord-list">
             <div>Early access announcements and test waves.</div>
-            <div>Direct feedback loop with the app while it evolves.</div>
-            <div>Cleaner launch path if you came from TikTok or another in-app browser.</div>
+            <div>Direct feedback while the app evolves.</div>
+            <div>Better access path if you came from TikTok or another in-app browser.</div>
           </div>
 
           <a
@@ -939,9 +682,7 @@
             rel="noreferrer"
           >Join Discord</a>
 
-          <div class="footer-note">
-            Link: https://discord.gg/A7SZ8zzt
-          </div>
+          <div class="footer-note">https://discord.gg/A7SZ8zzt</div>
         </aside>
       </div>
     </section>
@@ -968,43 +709,56 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+
     const form = document.getElementById("waitlist-form");
     const emailInput = document.getElementById("email");
     const submitBtn = document.getElementById("submit");
     const status = document.getElementById("status");
-
     const browserCard = document.getElementById("browser-card");
     const browserTitle = document.getElementById("browser-title");
-    const browserBody = document.getElementById("browser-body");
 
     const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
     const setStatus = (message, ok) => {
       status.textContent = message || "";
-      status.className = "status " + (ok ? "ok" : "err");
+      status.className = `status ${ok ? "ok" : "err"}`;
     };
 
     const detectInAppSource = () => {
-      const ua = navigator.userAgent || "";
-      const source = ua.toLowerCase();
-
-      if (source.includes("tiktok") || source.includes("musical_ly") || source.includes("bytedance")) {
+      const ua = (navigator.userAgent || "").toLowerCase();
+      const ref = (document.referrer || "").toLowerCase();
+      const params = new URLSearchParams(window.location.search);
+      const forced = params.get("source");
+      if (forced) return forced;
+      if (
+        ua.includes("tiktok") ||
+        ua.includes("musical_ly") ||
+        ua.includes("bytedance") ||
+        ref.includes("tiktok")
+      ) {
         return "TikTok";
       }
-      if (source.includes("instagram")) {
+      if (ua.includes("instagram") || ref.includes("instagram")) {
         return "Instagram";
       }
-      if (source.includes("fb_iab") || source.includes("fban") || source.includes("fbav") || source.includes("facebook")) {
+      if (
+        ua.includes("fb_iab") ||
+        ua.includes("fban") ||
+        ua.includes("fbav") ||
+        ua.includes("facebook") ||
+        ref.includes("facebook")
+      ) {
         return "Facebook";
+      }
+      if (ua.includes("snapchat") || ref.includes("snapchat")) {
+        return "Snapchat";
       }
       return null;
     };
 
     const inAppSource = detectInAppSource();
     if (inAppSource) {
-      browserTitle.textContent = `We've detected you're on ${inAppSource}`;
-      browserBody.textContent =
-        `Open S Rank in your browser for the full experience, then join the Discord to secure early access.`;
+      browserTitle.textContent = `HI! WE'VE DETECTED THAT YOU'RE ON ${String(inAppSource).toUpperCase()}.`;
       browserCard.classList.add("is-visible");
     }
 
@@ -1028,7 +782,9 @@
             email,
             createdAt: serverTimestamp(),
             platform: "web",
-            source: inAppSource ? `website_${inAppSource.toLowerCase()}_browser_notice` : "website_landing_page"
+            source: inAppSource
+              ? `website_${String(inAppSource).toLowerCase()}_notice`
+              : "website_landing_page"
           },
           { merge: true }
         );
