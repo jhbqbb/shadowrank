@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="S Rank Terms and Conditions">
+  <title>Terms & Conditions — S Rank</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Rajdhani", system-ui, sans-serif;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 50%),
+        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: auto, 28px 28px;
+    }
+    a { color: rgba(255,255,255,0.7); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: #fff; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.78);
+    }
+    .nav-inner {
+      width: min(860px, 100% - 32px); margin-inline: auto;
+      display: flex; align-items: center; gap: 12px; padding: 14px 0;
+    }
+    .nav-brand { font-family: "Teko", sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 1px; flex: 1; text-decoration: none; color: #fff; }
+    .nav-back { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 180ms; }
+    .nav-back:hover { color: #fff; }
+
+    .wrap { width: min(860px, 100% - 32px); margin-inline: auto; padding: 56px 0 96px; }
+
+    .page-title {
+      font-family: "Teko", sans-serif;
+      font-size: clamp(52px, 10vw, 96px);
+      font-weight: 700; line-height: 0.85; letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .page-sub {
+      font-size: 15px; font-weight: 600;
+      color: rgba(255,255,255,0.38); letter-spacing: 0.5px;
+      margin-bottom: 48px;
+    }
+
+    .toc {
+      padding: 20px 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.02);
+      margin-bottom: 48px;
+    }
+    .toc-title { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 12px; }
+    .toc ol { padding-left: 20px; display: grid; gap: 6px; }
+    .toc li { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.6); }
+    .toc a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 180ms; }
+    .toc a:hover { color: #fff; }
+
+    .doc-section { margin-bottom: 44px; }
+    .doc-section h2 {
+      font-family: "Teko", sans-serif;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700; line-height: 0.9; letter-spacing: 0.4px;
+      margin-bottom: 14px;
+      padding-top: 16px;
+    }
+    .doc-section p { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,0.68); margin-bottom: 12px; }
+    .doc-section ul, .doc-section ol { padding-left: 22px; display: grid; gap: 8px; margin-bottom: 12px; }
+    .doc-section li { font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.65); }
+    .doc-section strong { color: #fff; font-weight: 700; }
+
+    .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 8px 0 40px; }
+
+    .contact-box {
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.02);
+      margin-top: 40px;
+    }
+    .contact-box p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.6); }
+
+    footer { border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 0; }
+    .footer-inner { width: min(860px, 100% - 32px); margin-inline: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-brand { font-family: "Teko", sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+    .footer-links { display: flex; gap: 4px; }
+    .footer-link { padding: 7px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 180ms, background 180ms; }
+    .footer-link:hover { color: #fff; background: rgba(255,255,255,0.06); }
+    .footer-copy { width: 100%; font-size: 12px; color: rgba(255,255,255,0.28); margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="index.html">S RANK</a>
+      <a class="nav-back" href="index.html">← Back</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <h1 class="page-title">TERMS &amp;<br>CONDITIONS</h1>
+    <p class="page-sub">Last updated: April 2025 &nbsp;·&nbsp; Effective immediately</p>
+
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#acceptance">Acceptance of Terms</a></li>
+        <li><a href="#eligibility">Eligibility</a></li>
+        <li><a href="#account">Your Account</a></li>
+        <li><a href="#service">The Service</a></li>
+        <li><a href="#health">Health Disclaimer</a></li>
+        <li><a href="#conduct">Acceptable Use</a></li>
+        <li><a href="#content">User Content</a></li>
+        <li><a href="#ip">Intellectual Property</a></li>
+        <li><a href="#purchases">Purchases &amp; Subscriptions</a></li>
+        <li><a href="#termination">Termination</a></li>
+        <li><a href="#liability">Limitation of Liability</a></li>
+        <li><a href="#governing">Governing Law</a></li>
+        <li><a href="#changes">Changes to These Terms</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="doc-section" id="acceptance">
+      <h2>1. ACCEPTANCE OF TERMS</h2>
+      <p>By downloading, installing, or using the S Rank mobile application ("App") or visiting <strong>shadowrank.app</strong> ("Website"), you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree with any part of these Terms, do not use the App or Website.</p>
+      <p>These Terms constitute a legally binding agreement between you and S Rank ("we", "us", or "our").</p>
+    </div>
+
+    <div class="doc-section" id="eligibility">
+      <h2>2. ELIGIBILITY</h2>
+      <p>You must be at least <strong>16 years old</strong> to use S Rank. By using the App, you represent and warrant that you meet this age requirement. If you are under 18, you confirm that a parent or guardian has consented to your use of the App.</p>
+      <p>S Rank is not intended for use by children under 13. We do not knowingly collect personal data from children under 13.</p>
+    </div>
+
+    <div class="doc-section" id="account">
+      <h2>3. YOUR ACCOUNT</h2>
+      <p>To access certain features, you may need to create an account using Google Sign-In. You are responsible for:</p>
+      <ul>
+        <li>Maintaining the security of your account credentials.</li>
+        <li>All activity that occurs under your account.</li>
+        <li>Providing accurate and complete information.</li>
+        <li>Notifying us immediately of any unauthorised use.</li>
+      </ul>
+      <p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+    </div>
+
+    <div class="doc-section" id="service">
+      <h2>4. THE SERVICE</h2>
+      <p>S Rank provides a fitness tracking application that includes guided workouts, AI-generated daily quest suggestions, progress tracking (XP, levels, streaks), community features (guilds, leaderboard), and exercise libraries. Features may change over time. We reserve the right to modify, suspend, or discontinue any feature at any time without notice.</p>
+    </div>
+
+    <div class="doc-section" id="health">
+      <h2>5. HEALTH DISCLAIMER</h2>
+      <p><strong>S Rank is not a medical application and does not provide medical advice.</strong> All content, workout suggestions, and AI-generated quests are for informational and entertainment purposes only.</p>
+      <p>Before starting any fitness programme, you should consult with a qualified healthcare professional, especially if you have:</p>
+      <ul>
+        <li>Any pre-existing medical conditions or injuries.</li>
+        <li>Cardiovascular or respiratory concerns.</li>
+        <li>Musculoskeletal issues or chronic pain.</li>
+        <li>Recently had surgery or illness.</li>
+      </ul>
+      <p>By using S Rank, you acknowledge that you exercise at your own risk and that we are not liable for any injury, illness, or health-related issue arising from your use of the App.</p>
+    </div>
+
+    <div class="doc-section" id="conduct">
+      <h2>6. ACCEPTABLE USE</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the App for any unlawful purpose or in violation of any regulations.</li>
+        <li>Attempt to reverse-engineer, decompile, or hack any part of the App.</li>
+        <li>Upload viruses or malicious code.</li>
+        <li>Harass, abuse, or harm other users through community features.</li>
+        <li>Create fake accounts or manipulate leaderboards.</li>
+        <li>Scrape data or use automated means to access the App without permission.</li>
+        <li>Impersonate S Rank staff or other users.</li>
+        <li>Attempt to gain unauthorised access to our systems or databases.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section" id="content">
+      <h2>7. USER CONTENT</h2>
+      <p>You may submit a profile picture and username to the App. By doing so, you grant S Rank a non-exclusive, royalty-free, worldwide licence to use, store, and display that content solely in connection with providing the App's features.</p>
+      <p>You are responsible for ensuring that any content you provide does not violate third-party rights, contain illegal content, or violate our acceptable use policy.</p>
+      <p>We reserve the right to remove any user content that violates these Terms.</p>
+    </div>
+
+    <div class="doc-section" id="ip">
+      <h2>8. INTELLECTUAL PROPERTY</h2>
+      <p>All content, design, code, and materials in the App and Website — including but not limited to logos, icons, exercise data, and UI design — are the exclusive property of S Rank or its licensors and are protected by applicable intellectual property laws.</p>
+      <p>You may not copy, modify, distribute, or create derivative works based on our content without our explicit written permission.</p>
+    </div>
+
+    <div class="doc-section" id="purchases">
+      <h2>9. PURCHASES &amp; SUBSCRIPTIONS</h2>
+      <p>S Rank may offer premium features via in-app purchases or subscriptions processed through Google Play or the Apple App Store. By making a purchase, you agree to the payment terms of those platforms.</p>
+      <p>All purchases are final unless required otherwise by applicable law. Subscriptions automatically renew unless cancelled before the renewal date. You can manage subscriptions through your device's app store settings.</p>
+      <p>We reserve the right to change pricing at any time with reasonable notice.</p>
+    </div>
+
+    <div class="doc-section" id="termination">
+      <h2>10. TERMINATION</h2>
+      <p>We reserve the right to suspend or terminate your access to the App at any time, with or without cause, if we believe you have violated these Terms. You may delete your account at any time through the App settings.</p>
+      <p>Upon termination, your right to use the App immediately ceases, and we may delete your account data in accordance with our Privacy Policy.</p>
+    </div>
+
+    <div class="doc-section" id="liability">
+      <h2>11. LIMITATION OF LIABILITY</h2>
+      <p>To the fullest extent permitted by applicable law:</p>
+      <ul>
+        <li>S Rank is provided "as is" without warranties of any kind.</li>
+        <li>We do not guarantee that the App will be uninterrupted, error-free, or secure.</li>
+        <li>We are not liable for any indirect, incidental, special, or consequential damages arising from your use of the App.</li>
+        <li>Our total liability to you shall not exceed the amount you paid to us in the 12 months prior to the claim.</li>
+      </ul>
+      <p>Some jurisdictions do not allow limitation of liability for personal injury or certain damages — in such cases, the above limitations apply to the maximum extent permitted by law.</p>
+    </div>
+
+    <div class="doc-section" id="governing">
+      <h2>12. GOVERNING LAW</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the European Union and Germany, without regard to conflict of law principles. Any disputes shall be subject to the exclusive jurisdiction of the courts in Germany.</p>
+    </div>
+
+    <div class="doc-section" id="changes">
+      <h2>13. CHANGES TO THESE TERMS</h2>
+      <p>We may update these Terms from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of the App after changes constitutes your acceptance of the revised Terms.</p>
+      <p>For significant changes, we will notify you via the App or the email address associated with your account where reasonably practicable.</p>
+    </div>
+
+    <div class="doc-section" id="contact">
+      <h2>14. CONTACT</h2>
+      <p>If you have questions about these Terms, please contact us:</p>
+      <div class="contact-box">
+        <p><strong>S Rank</strong><br>
+        Email: <a href="mailto:support@shadowrank.app">support@shadowrank.app</a><br>
+        Website: <a href="https://shadowrank.app">shadowrank.app</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">S RANK</div>
+      <div class="footer-links">
+        <a class="footer-link" href="index.html">Home</a>
+        <a class="footer-link" href="terms.html">Terms</a>
+        <a class="footer-link" href="privacy.html">Privacy</a>
+      </div>
+      <p class="footer-copy">© 2025 S Rank. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
