@@ -1,281 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="S Rank Privacy Policy">
-  <title>Privacy Policy — S Rank</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: #000;
-      color: #fff;
-      font-family: "Rajdhani", system-ui, sans-serif;
-      background-image:
-        radial-gradient(circle at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 50%),
-        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: auto, 28px 28px;
-    }
-    a { color: rgba(255,255,255,0.7); text-decoration: underline; text-underline-offset: 3px; }
-    a:hover { color: #fff; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Privacy Policy — S Rank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#30D158;
+  --w:#fff;
+  --muted:rgba(255,255,255,0.42);
+  --dim:rgba(255,255,255,0.12);
+  --border:rgba(255,255,255,0.09);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+html{scroll-behavior:smooth}
+body{
+  background:#000;color:var(--w);
+  font-family:'Inter',system-ui,sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
 
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      background: rgba(0,0,0,0.78);
-    }
-    .nav-inner {
-      width: min(860px, 100% - 32px); margin-inline: auto;
-      display: flex; align-items: center; gap: 12px; padding: 14px 0;
-    }
-    .nav-brand { font-family: "Teko", sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 1px; flex: 1; text-decoration: none; color: #fff; }
-    .nav-back { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 180ms; }
-    .nav-back:hover { color: #fff; }
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 36px;height:54px;
+  background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-brand{font-size:10.5px;font-weight:800;letter-spacing:4.5px;text-transform:uppercase}
+.nav-back{
+  display:flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);transition:color .2s;
+}
+.nav-back:hover{color:var(--w)}
+.nav-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-    .wrap { width: min(860px, 100% - 32px); margin-inline: auto; padding: 56px 0 96px; }
+/* CONTENT */
+.legal-wrap{
+  max-width:720px;margin:0 auto;
+  padding:110px 36px 100px;
+}
+.legal-eyebrow{
+  font-size:9.5px;font-weight:700;letter-spacing:3.5px;
+  color:var(--muted);text-transform:uppercase;margin-bottom:20px;
+}
+.legal-title{
+  font-size:clamp(36px,7vw,72px);font-weight:900;line-height:.92;letter-spacing:-2px;
+  margin-bottom:16px;
+}
+.legal-date{
+  font-size:12px;font-weight:400;color:rgba(255,255,255,.3);
+  margin-bottom:56px;
+}
+.legal-body h2{
+  font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);margin-top:44px;margin-bottom:12px;
+}
+.legal-body p{
+  font-size:15px;font-weight:400;color:rgba(255,255,255,.65);
+  line-height:1.78;margin-bottom:14px;
+}
+.legal-body ul{
+  padding-left:20px;margin-bottom:14px;
+}
+.legal-body ul li{
+  font-size:15px;font-weight:400;color:rgba(255,255,255,.65);
+  line-height:1.78;margin-bottom:6px;
+}
+.legal-body a{
+  color:var(--w);text-decoration:underline;text-underline-offset:3px;
+  opacity:.7;transition:opacity .2s;
+}
+.legal-body a:hover{opacity:1}
 
-    .page-title {
-      font-family: "Teko", sans-serif;
-      font-size: clamp(52px, 10vw, 96px);
-      font-weight: 700; line-height: 0.85; letter-spacing: 0.5px;
-      margin-bottom: 6px;
-    }
-    .page-sub { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.38); letter-spacing: 0.5px; margin-bottom: 48px; }
+hr.rule{border:none;border-top:1px solid var(--border);margin:0}
 
-    .toc {
-      padding: 20px 24px; border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.02);
-      margin-bottom: 48px;
-    }
-    .toc-title { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: rgba(255,255,255,0.35); text-transform: uppercase; margin-bottom: 12px; }
-    .toc ol { padding-left: 20px; display: grid; gap: 6px; }
-    .toc li { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.6); }
-    .toc a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 180ms; }
-    .toc a:hover { color: #fff; }
+/* FOOTER */
+footer{
+  padding:38px 36px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;
+}
+.ft-brand{font-size:9.5px;font-weight:800;letter-spacing:4px;color:rgba(255,255,255,.28);text-transform:uppercase}
+.ft-links{display:flex;gap:24px}
+.ft-links a{
+  font-size:9.5px;font-weight:600;letter-spacing:2.5px;
+  color:rgba(255,255,255,.28);text-transform:uppercase;
+  transition:color .2s;
+}
+.ft-links a:hover{color:var(--w)}
 
-    .doc-section { margin-bottom: 44px; }
-    .doc-section h2 {
-      font-family: "Teko", sans-serif;
-      font-size: clamp(28px, 5vw, 44px); font-weight: 700; line-height: 0.9;
-      letter-spacing: 0.4px; margin-bottom: 14px; padding-top: 16px;
-    }
-    .doc-section p { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,0.68); margin-bottom: 12px; }
-    .doc-section ul, .doc-section ol { padding-left: 22px; display: grid; gap: 8px; margin-bottom: 12px; }
-    .doc-section li { font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.65); }
-    .doc-section strong { color: #fff; font-weight: 700; }
-
-    .data-table {
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.07);
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-    .data-table th, .data-table td {
-      padding: 14px 16px;
-      text-align: left;
-      font-size: 15px;
-      font-weight: 600;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      font-family: "Rajdhani", sans-serif;
-    }
-    .data-table th { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.02); }
-    .data-table td { color: rgba(255,255,255,0.65); }
-    .data-table tr:last-child td { border-bottom: none; }
-
-    .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 8px 0 40px; }
-
-    .contact-box {
-      padding: 24px; border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.02);
-      margin-top: 40px;
-    }
-    .contact-box p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.6); }
-
-    footer { border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 0; }
-    .footer-inner { width: min(860px, 100% - 32px); margin-inline: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-brand { font-family: "Teko", sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 1px; }
-    .footer-links { display: flex; gap: 4px; }
-    .footer-link { padding: 7px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 180ms, background 180ms; }
-    .footer-link:hover { color: #fff; background: rgba(255,255,255,0.06); }
-    .footer-copy { width: 100%; font-size: 12px; color: rgba(255,255,255,0.28); margin-top: 8px; }
-  </style>
+@media(max-width:720px){
+  nav{padding:0 20px}
+  .legal-wrap{padding:96px 20px 80px}
+  footer{padding:30px 20px}
+}
+</style>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-inner">
-      <a class="nav-brand" href="index.html">S RANK</a>
-      <a class="nav-back" href="index.html">← Back</a>
-    </div>
-  </nav>
+<nav id="nav">
+  <div class="nav-brand">S Rank</div>
+  <a class="nav-back" href="/">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back
+  </a>
+</nav>
 
-  <div class="wrap">
-    <h1 class="page-title">PRIVACY<br>POLICY</h1>
-    <p class="page-sub">Last updated: April 2025 &nbsp;·&nbsp; Effective immediately</p>
+<div class="legal-wrap">
+  <div class="legal-eyebrow">Legal</div>
+  <div class="legal-title">Privacy<br>Policy</div>
+  <div class="legal-date">Effective Date: April 18, 2026</div>
 
-    <div class="toc">
-      <div class="toc-title">Contents</div>
-      <ol>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#data-collected">Data We Collect</a></li>
-        <li><a href="#how-used">How We Use Your Data</a></li>
-        <li><a href="#third-parties">Third-Party Services</a></li>
-        <li><a href="#data-storage">Data Storage &amp; Security</a></li>
-        <li><a href="#retention">Data Retention</a></li>
-        <li><a href="#rights">Your Rights</a></li>
-        <li><a href="#children">Children's Privacy</a></li>
-        <li><a href="#transfers">International Transfers</a></li>
-        <li><a href="#changes">Changes to This Policy</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ol>
-    </div>
+  <div class="legal-body">
 
-    <div class="divider"></div>
+    <h2>1. Overview</h2>
+    <p>S Rank ("we", "us", "our") respects your privacy. This Privacy Policy explains what data we collect, how we use it, and your rights regarding that data. By using the S Rank app ("the App"), you agree to the practices described here.</p>
 
-    <div class="doc-section" id="overview">
-      <h2>1. OVERVIEW</h2>
-      <p>S Rank ("we", "us", "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you use the S Rank mobile application ("App") or visit <strong>shadowrank.app</strong>.</p>
-      <p>By using the App or Website, you agree to the collection and use of information as described in this Policy. We do not sell your personal data to third parties.</p>
-    </div>
+    <h2>2. Data We Collect</h2>
+    <p>We collect the following categories of information:</p>
+    <ul>
+      <li><strong>Account Data:</strong> Email address and password hash when you create an account.</li>
+      <li><strong>Profile Data:</strong> Display name, avatar image, age, weight, height, fitness goals, and equipment preferences you provide during onboarding or in settings.</li>
+      <li><strong>Fitness Activity:</strong> Daily quest completions, XP earned, rank progression, streak days, workout sessions, and training program progress.</li>
+      <li><strong>Device Data:</strong> Device type, operating system, and app version, used for crash reporting and compatibility.</li>
+      <li><strong>Purchase Data:</strong> Subscription status and purchase history, managed through Google Play or the Apple App Store. We do not store your payment card details.</li>
+    </ul>
 
-    <div class="doc-section" id="data-collected">
-      <h2>2. DATA WE COLLECT</h2>
-      <p>We collect the following categories of data:</p>
+    <h2>3. How We Use Your Data</h2>
+    <p>We use your data to:</p>
+    <ul>
+      <li>Provide and personalize your fitness experience (quests, training plans, rank system)</li>
+      <li>Sync your progress across devices</li>
+      <li>Display leaderboard and guild features</li>
+      <li>Send account-related emails (password reset, important notices)</li>
+      <li>Improve app performance and fix bugs</li>
+      <li>Process and manage subscriptions</li>
+    </ul>
+    <p>We do not sell your personal data to third parties.</p>
 
-      <table class="data-table">
-        <thead>
-          <tr><th>Category</th><th>Examples</th><th>Purpose</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Account Data</strong></td><td>Email address, display name, profile photo (from Google)</td><td>Create and manage your account</td></tr>
-          <tr><td><strong>Profile Data</strong></td><td>Username, age, height, weight, fitness level, goals</td><td>Personalise workouts and AI quests</td></tr>
-          <tr><td><strong>Fitness Data</strong></td><td>Workouts completed, XP, level, streak days, quest history</td><td>Track your progress</td></tr>
-          <tr><td><strong>Health Data</strong></td><td>Steps, heart rate (via Health Connect, optional)</td><td>Provide health-based insights</td></tr>
-          <tr><td><strong>Device Data</strong></td><td>Device type, OS version, app version</td><td>Fix bugs and improve stability</td></tr>
-          <tr><td><strong>Usage Data</strong></td><td>Screens viewed, features used, crash reports</td><td>Improve the App experience</td></tr>
-          <tr><td><strong>Community Data</strong></td><td>Guild membership, chat messages, leaderboard ranking</td><td>Power community features</td></tr>
-        </tbody>
-      </table>
+    <h2>4. Data Storage &amp; Security</h2>
+    <p>Your data is stored securely using Google Firebase (Firestore and Firebase Auth), hosted in Google Cloud. We implement industry-standard security measures including encrypted connections (TLS), access controls, and Firestore security rules to protect your information.</p>
+    <p>No method of transmission over the internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
 
-      <p>We do not collect precise geolocation, payment card details (managed by app stores), or any biometric data beyond optional health integrations you explicitly enable.</p>
-    </div>
+    <h2>5. Third-Party Services</h2>
+    <p>The App uses the following third-party services, each governed by their own privacy policy:</p>
+    <ul>
+      <li><strong>Google Firebase</strong> — Authentication, database, and storage</li>
+      <li><strong>RevenueCat</strong> — Subscription and purchase management</li>
+      <li><strong>Google Play / Apple App Store</strong> — App distribution and in-app purchases</li>
+      <li><strong>OpenAI</strong> — AI-generated training program content (no personal fitness history is shared beyond your goals and rank level)</li>
+    </ul>
 
-    <div class="doc-section" id="how-used">
-      <h2>3. HOW WE USE YOUR DATA</h2>
-      <p>We use your data to:</p>
-      <ul>
-        <li>Create and manage your account and profile.</li>
-        <li>Generate AI-powered daily workout quests tailored to your goals and equipment.</li>
-        <li>Track your workout history, XP, levels, and streaks.</li>
-        <li>Power community features such as guilds and the global leaderboard.</li>
-        <li>Send push notifications about quests, achievements, and updates (you can disable these).</li>
-        <li>Diagnose and fix bugs through crash reporting.</li>
-        <li>Improve the App by analysing anonymised usage patterns.</li>
-        <li>Comply with legal obligations.</li>
-      </ul>
-      <p>We do not use your data for targeted advertising or sell it to advertisers.</p>
-    </div>
+    <h2>6. Data Retention</h2>
+    <p>We retain your account data for as long as your account is active. If you delete your account, we will delete your personal data within 30 days, except where retention is required by law.</p>
 
-    <div class="doc-section" id="third-parties">
-      <h2>4. THIRD-PARTY SERVICES</h2>
-      <p>S Rank uses the following third-party services. Each has its own privacy policy:</p>
-      <ul>
-        <li><strong>Google Firebase</strong> (Auth, Firestore, Cloud Functions, Storage) — account management, data storage, and AI quest generation. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noreferrer">Firebase Privacy</a></li>
-        <li><strong>Google Sign-In</strong> — authentication provider. <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a></li>
-        <li><strong>Google Gemini AI</strong> — generates personalised workout quests via Cloud Functions (your profile data is sent to generate quests, not stored by Google for training). <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google Privacy Policy</a></li>
-        <li><strong>RevenueCat</strong> — subscription and purchase management. <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noreferrer">RevenueCat Privacy</a></li>
-        <li><strong>Sentry</strong> — crash and error reporting (anonymised). <a href="https://sentry.io/privacy/" target="_blank" rel="noreferrer">Sentry Privacy</a></li>
-        <li><strong>Google Health Connect</strong> — optional health data integration (steps, heart rate). Data stays on your device unless you explicitly share it.</li>
-        <li><strong>Google Mobile Ads</strong> — non-targeted ads shown to free-tier users. Premium users see no ads.</li>
-      </ul>
-    </div>
+    <h2>7. Children's Privacy</h2>
+    <p>The App is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, contact us at <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a> and we will delete it promptly.</p>
 
-    <div class="doc-section" id="data-storage">
-      <h2>5. DATA STORAGE &amp; SECURITY</h2>
-      <p>Your data is stored in Google Firebase (Firestore and Firebase Storage), with servers primarily located in the European Union. We implement industry-standard security measures including:</p>
-      <ul>
-        <li>Encrypted data transmission (HTTPS/TLS).</li>
-        <li>Firebase security rules that restrict data access to authenticated users only.</li>
-        <li>Server-side validation to prevent data manipulation.</li>
-        <li>Rate limiting on sensitive operations (e.g., XP updates).</li>
-      </ul>
-      <p>No method of electronic storage or transmission is 100% secure. We cannot guarantee absolute security, but we take reasonable steps to protect your data.</p>
-    </div>
+    <h2>8. Your Rights</h2>
+    <p>Depending on your location, you may have the right to:</p>
+    <ul>
+      <li>Access the personal data we hold about you</li>
+      <li>Request correction of inaccurate data</li>
+      <li>Request deletion of your data</li>
+      <li>Object to or restrict certain processing</li>
+      <li>Data portability (receive your data in a structured format)</li>
+    </ul>
+    <p>To exercise these rights, contact us at <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a>.</p>
 
-    <div class="doc-section" id="retention">
-      <h2>6. DATA RETENTION</h2>
-      <p>We retain your account data for as long as your account is active. If you delete your account:</p>
-      <ul>
-        <li>Your profile and fitness data will be deleted from our systems within <strong>30 days</strong>.</li>
-        <li>Anonymised aggregate data (e.g., total workouts completed globally) may be retained.</li>
-        <li>Chat messages in guilds may persist for up to 90 days before deletion.</li>
-        <li>Crash reports in Sentry are automatically deleted after 90 days.</li>
-      </ul>
-      <p>Backup copies may persist for up to 30 additional days after deletion. Legal obligations may require us to retain certain data longer.</p>
-    </div>
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy periodically. We will notify you of significant changes through the App or by email. Continued use of the App after changes take effect constitutes acceptance of the updated policy.</p>
 
-    <div class="doc-section" id="rights">
-      <h2>7. YOUR RIGHTS</h2>
-      <p>Depending on your location, you may have the following rights under applicable data protection law (including GDPR):</p>
-      <ul>
-        <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
-        <li><strong>Rectification:</strong> Correct inaccurate or incomplete data.</li>
-        <li><strong>Erasure:</strong> Request deletion of your personal data ("right to be forgotten").</li>
-        <li><strong>Portability:</strong> Receive your data in a machine-readable format.</li>
-        <li><strong>Objection:</strong> Object to processing based on legitimate interests.</li>
-        <li><strong>Restriction:</strong> Request that we limit how we use your data.</li>
-        <li><strong>Withdraw Consent:</strong> Withdraw consent for optional data processing at any time.</li>
-      </ul>
-      <p>To exercise any of these rights, contact us at <a href="mailto:privacy@shadowrank.app">privacy@shadowrank.app</a>. We will respond within 30 days. You also have the right to lodge a complaint with your local data protection authority.</p>
-    </div>
+    <h2>10. Contact</h2>
+    <p>Questions or concerns about your privacy? Contact us:</p>
+    <p>
+      Email: <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a><br/>
+      Website: <a href="https://srank.netlify.app">srank.netlify.app</a>
+    </p>
 
-    <div class="doc-section" id="children">
-      <h2>8. CHILDREN'S PRIVACY</h2>
-      <p>S Rank is not directed at children under 13. We do not knowingly collect personal information from children under 13. If we become aware that we have inadvertently collected data from a child under 13, we will delete that information promptly.</p>
-      <p>If you are a parent or guardian and believe your child has provided us with personal data, please contact us at <a href="mailto:privacy@shadowrank.app">privacy@shadowrank.app</a>.</p>
-    </div>
-
-    <div class="doc-section" id="transfers">
-      <h2>9. INTERNATIONAL TRANSFERS</h2>
-      <p>S Rank operates globally. Your data may be transferred to and processed in countries outside your country of residence, including the United States, where Google's infrastructure is based. These transfers are made subject to appropriate safeguards, including Google's adherence to EU-US Data Privacy Framework and Standard Contractual Clauses.</p>
-    </div>
-
-    <div class="doc-section" id="changes">
-      <h2>10. CHANGES TO THIS POLICY</h2>
-      <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. For significant changes, we will notify you through the App or via email where practicable.</p>
-      <p>Continued use of the App after changes constitutes your acceptance of the updated Policy.</p>
-    </div>
-
-    <div class="doc-section" id="contact">
-      <h2>11. CONTACT US</h2>
-      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
-      <div class="contact-box">
-        <p><strong>S Rank — Data Controller</strong><br>
-        Privacy enquiries: <a href="mailto:privacy@shadowrank.app">privacy@shadowrank.app</a><br>
-        General support: <a href="mailto:support@shadowrank.app">support@shadowrank.app</a><br>
-        Website: <a href="https://shadowrank.app">shadowrank.app</a></p>
-      </div>
-    </div>
   </div>
+</div>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">S RANK</div>
-      <div class="footer-links">
-        <a class="footer-link" href="index.html">Home</a>
-        <a class="footer-link" href="terms.html">Terms</a>
-        <a class="footer-link" href="privacy.html">Privacy</a>
-      </div>
-      <p class="footer-copy">© 2025 S Rank. All rights reserved.</p>
-    </div>
-  </footer>
+<hr class="rule"/>
+
+<footer>
+  <div class="ft-brand">S Rank / Est. 2026</div>
+  <div class="ft-links">
+    <a href="https://srank.netlify.app/termsofuse">Terms</a>
+    <a href="https://srank.netlify.app/privacy">Privacy</a>
+    <a href="https://discord.gg/nFfpwTx9" target="_blank" rel="noopener">Discord</a>
+  </div>
+</footer>
 
 </body>
 </html>
