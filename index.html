@@ -3,10 +3,54 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>S Rank — Fitness System</title>
+<title>S Rank — The World's First Fitness System | Level Up IRL</title>
+<meta name="description" content="S Rank is the Solo Leveling-inspired fitness RPG. 60-day training program, daily quests, guilds, and 7 ranks from E to S. Train your body. Earn your rank."/>
+<meta name="keywords" content="solo leveling fitness, gamified workout app, fitness rpg, daily quest tracker, guild workout, 60-day program, rank up fitness, level up body"/>
+<meta name="author" content="S Rank"/>
+<meta name="theme-color" content="#000000"/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://srank.netlify.app/"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://srank.netlify.app/"/>
+<meta property="og:site_name" content="S Rank"/>
+<meta property="og:title" content="S Rank — The World's First Fitness System"/>
+<meta property="og:description" content="Every warrior starts at E Rank. 60 days of precision training that levels your body and earns your rank. Train like it's the game it was always meant to be."/>
+<meta property="og:image" content="https://srank.netlify.app/img/og-banner.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="S Rank — The World's First Fitness System"/>
+<meta name="twitter:description" content="Solo Leveling-inspired fitness RPG. 60-day program. Daily quests. Guild wars. Rise from E Rank."/>
+<meta name="twitter:image" content="https://srank.netlify.app/img/og-banner.jpg"/>
+
+<!-- Icons -->
+<link rel="icon" type="image/png" href="/img/favicon.png"/>
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png"/>
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"S Rank",
+  "applicationCategory":"HealthApplication",
+  "operatingSystem":"Android, iOS",
+  "description":"Solo Leveling-inspired fitness RPG with a 60-day training program, daily quests, guild wars, and 7 ranks from E to S.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","ratingCount":"1200"}
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
+
+<!-- Analytics · Plausible (privacy-first, no cookies) -->
+<script defer data-domain="srank.netlify.app" src="https://plausible.io/js/script.outbound-links.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -43,6 +87,13 @@ nav{
 }
 nav.solid{background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:var(--border)}
 .nav-brand{font-size:10.5px;font-weight:800;letter-spacing:4.5px;text-transform:uppercase}
+.nav-actions{display:flex;align-items:center;gap:20px}
+.nav-link{
+  font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.52);transition:color .2s;
+}
+.nav-link:hover{color:var(--w)}
+@media (max-width:520px){.nav-link{display:none}}
 .nav-cta{
   display:flex;align-items:center;gap:7px;
   background:var(--w);color:#000;
@@ -252,6 +303,230 @@ hr.rule{border:none;border-top:1px solid var(--border)}
   letter-spacing:2.5px;color:var(--muted);text-transform:uppercase;
 }
 
+/* ══════════════════════ WAITLIST */
+.wl-sec{padding:96px 36px 112px;border-top:1px solid var(--border)}
+.wl-wrap{max-width:720px;margin:0 auto;text-align:center}
+.wl-kicker{
+  font-size:9.5px;font-weight:700;letter-spacing:4.5px;color:var(--green);
+  text-transform:uppercase;margin-bottom:22px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.wl-kicker .dot{width:5px;height:5px}
+.wl-head{
+  font-size:clamp(32px,5.5vw,56px);font-weight:900;line-height:1;
+  letter-spacing:-1.5px;margin-bottom:18px;
+}
+.wl-sub{
+  font-size:clamp(13px,1.5vw,15px);font-weight:400;color:var(--muted);
+  line-height:1.65;max-width:520px;margin:0 auto 36px;
+}
+.wl-form{
+  display:flex;gap:8px;max-width:480px;margin:0 auto;
+  flex-wrap:wrap;justify-content:center;
+}
+.wl-input{
+  flex:1 1 260px;min-width:0;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  color:var(--w);font-family:inherit;font-size:13px;font-weight:500;
+  letter-spacing:.2px;
+  padding:15px 18px;border-radius:100px;
+  outline:none;transition:border-color .2s,background .2s;
+}
+.wl-input::placeholder{color:rgba(255,255,255,.32);letter-spacing:1.8px;font-size:10.5px;font-weight:700;text-transform:uppercase}
+.wl-input:focus{border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.06)}
+.wl-submit{
+  background:var(--w);color:#000;
+  font-family:inherit;font-size:10.5px;font-weight:800;
+  letter-spacing:2.8px;text-transform:uppercase;
+  padding:15px 26px;border:none;border-radius:100px;
+  cursor:pointer;transition:opacity .2s,transform .2s;
+  white-space:nowrap;
+}
+.wl-submit:hover:not(:disabled){opacity:.82}
+.wl-submit:active:not(:disabled){transform:scale(.97)}
+.wl-submit:disabled{opacity:.5;cursor:not-allowed}
+.wl-msg{
+  margin-top:18px;font-size:11px;font-weight:600;letter-spacing:2.5px;
+  text-transform:uppercase;min-height:15px;transition:color .25s;
+}
+.wl-msg.ok{color:var(--green)}
+.wl-msg.err{color:#FF4A55}
+.wl-legal{
+  margin-top:22px;font-size:10px;color:rgba(255,255,255,.22);
+  letter-spacing:1.2px;
+}
+
+/* ══════════════════════ DOWNLOAD */
+.dl-sec{padding:96px 36px;border-top:1px solid var(--border);text-align:center}
+.dl-head{
+  font-size:clamp(28px,4.5vw,44px);font-weight:900;line-height:1;
+  letter-spacing:-1px;margin-bottom:14px;
+}
+.dl-sub{
+  font-size:clamp(12px,1.4vw,14px);color:var(--muted);margin-bottom:38px;
+  letter-spacing:.3px;
+}
+.dl-badges{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.dl-badge{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:13px 22px 13px 18px;border-radius:12px;
+  background:rgba(255,255,255,.05);border:1px solid var(--border);
+  transition:background .2s,border-color .2s,transform .2s;
+  min-width:190px;
+}
+.dl-badge:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);transform:translateY(-2px)}
+.dl-badge svg{width:26px;height:26px;flex-shrink:0}
+.dl-badge-text{text-align:left;line-height:1.1}
+.dl-badge-line1{
+  font-size:9px;font-weight:600;letter-spacing:1.8px;
+  color:rgba(255,255,255,.52);text-transform:uppercase;
+}
+.dl-badge-line2{
+  font-size:15px;font-weight:700;color:var(--w);margin-top:2px;letter-spacing:.3px;
+}
+.dl-soon{
+  font-size:8.5px;font-weight:700;letter-spacing:2.5px;
+  color:var(--green);text-transform:uppercase;margin-top:3px;
+}
+
+/* ══════════════════════ COUNTDOWN (in hero) */
+.hc-meta{
+  font-size:9.5px;font-weight:700;letter-spacing:3.5px;
+  color:var(--green);text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:7px;
+  margin-bottom:18px;
+  animation:fu .85s var(--ease-out) both .4s;
+}
+.hc-meta .dot{width:5px;height:5px}
+.hero-countdown{
+  display:flex;gap:clamp(16px,3vw,30px);align-items:flex-end;
+  margin-top:28px;
+  animation:fu .85s var(--ease-out) both .58s;
+}
+.hc-cell{display:flex;flex-direction:column;align-items:flex-start}
+.hc-num{
+  font-size:clamp(30px,4.4vw,48px);font-weight:900;
+  line-height:1;letter-spacing:-1.2px;font-variant-numeric:tabular-nums;
+}
+.hc-lbl{
+  margin-top:8px;font-size:8.5px;font-weight:700;letter-spacing:2.5px;
+  color:var(--muted);text-transform:uppercase;
+}
+.hc-sep{
+  font-size:clamp(26px,3.6vw,40px);font-weight:300;
+  color:rgba(255,255,255,.18);line-height:1;padding-bottom:22px;
+}
+
+/* ══════════════════════ SOCIAL PROOF STRIP */
+.proof-strip{
+  padding:40px 36px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  display:flex;justify-content:center;gap:clamp(28px,6vw,72px);flex-wrap:wrap;
+}
+.proof-item{display:flex;flex-direction:column;align-items:center;min-width:88px}
+.proof-num{
+  font-size:clamp(30px,4.2vw,44px);font-weight:900;letter-spacing:-1px;line-height:1;
+  font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;gap:9px;
+}
+.proof-num .dot{width:7px;height:7px}
+.proof-lbl{
+  margin-top:10px;font-size:9px;font-weight:700;letter-spacing:3px;
+  color:var(--muted);text-transform:uppercase;text-align:center;
+}
+@media(max-width:720px){.proof-strip{padding:32px 20px}}
+
+/* ══════════════════════ FAQ */
+.faq-list{border-top:1px solid var(--border);margin-top:8px}
+.faq{border-bottom:1px solid var(--border)}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:24px 0;font-size:clamp(15px,1.8vw,19px);font-weight:700;
+  cursor:pointer;user-select:none;background:none;border:none;color:var(--w);
+  font-family:inherit;width:100%;text-align:left;letter-spacing:-.2px;
+  transition:opacity .2s;
+}
+.faq-q:hover{opacity:.78}
+.faq-toggle{
+  font-size:22px;font-weight:300;color:var(--muted);
+  transition:transform .35s var(--ease-out),color .2s;
+  flex-shrink:0;margin-left:18px;line-height:1;
+}
+.faq.open .faq-toggle{transform:rotate(45deg);color:var(--w)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .45s var(--ease-out);
+}
+.faq.open .faq-a{max-height:340px}
+.faq-a p{
+  font-size:clamp(13px,1.4vw,15px);font-weight:400;color:var(--muted);
+  line-height:1.72;padding:0 0 26px;max-width:740px;
+}
+
+/* ══════════════════════ DEV LOG */
+.log-list{display:flex;flex-direction:column;margin-top:8px}
+.log-item{
+  padding:30px 0;border-top:1px solid var(--border);
+  display:grid;grid-template-columns:140px 1fr;gap:28px;
+  opacity:0;transform:translateY(26px);
+  transition:opacity .8s ease,transform .8s var(--ease-out);
+}
+.log-item.in{opacity:1;transform:translateY(0)}
+@media(max-width:640px){.log-item{grid-template-columns:1fr;gap:8px}}
+.log-date{
+  font-size:9.5px;font-weight:700;letter-spacing:3px;
+  color:var(--muted);text-transform:uppercase;padding-top:6px;
+  font-variant-numeric:tabular-nums;
+}
+.log-title{
+  font-size:clamp(15px,1.9vw,20px);font-weight:800;margin-bottom:10px;letter-spacing:-.3px;
+}
+.log-text{
+  font-size:clamp(13px,1.4vw,15px);color:var(--muted);line-height:1.72;
+}
+.log-tag{
+  display:inline-block;margin-top:14px;
+  font-size:8.5px;font-weight:700;letter-spacing:2.5px;
+  color:var(--green);text-transform:uppercase;padding:4px 10px;
+  border:1px solid rgba(48,209,88,.32);border-radius:100px;
+}
+.log-tag.ship{color:#5CEAFF;border-color:rgba(92,234,255,.32)}
+.log-tag.tune{color:#FFD15C;border-color:rgba(255,209,92,.32)}
+
+/* ══════════════════════ BIG FOOTER */
+.footer-big{padding:64px 36px 36px;border-top:1px solid var(--border)}
+.footer-big-wrap{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px;
+  max-width:1240px;margin:0 auto;
+}
+.fb-brand{font-size:16px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.fb-tag{font-size:12px;color:var(--muted);line-height:1.65;max-width:280px}
+.fb-col-head{
+  font-size:9px;font-weight:700;letter-spacing:3px;
+  color:rgba(255,255,255,.42);text-transform:uppercase;margin-bottom:18px;
+}
+.fb-col a{
+  display:block;font-size:13px;color:rgba(255,255,255,.72);
+  margin-bottom:11px;transition:color .2s;
+}
+.fb-col a:hover{color:var(--w)}
+.footer-bot{
+  max-width:1240px;margin:28px auto 0;padding-top:22px;
+  border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.fb-cr{font-size:10px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.32);text-transform:uppercase}
+.fb-bot-links{display:flex;gap:20px}
+.fb-bot-links a{
+  font-size:10px;font-weight:600;letter-spacing:2px;
+  color:rgba(255,255,255,.32);text-transform:uppercase;transition:color .2s;
+}
+.fb-bot-links a:hover{color:var(--w)}
+@media(max-width:720px){
+  .footer-big{padding:48px 20px 28px}
+  .footer-big-wrap{grid-template-columns:1fr 1fr;gap:36px 20px}
+  .fb-brand-col{grid-column:1/-1}
+}
+
 /* ══════════════════════ CLOSE */
 .close-sec{padding:128px 36px 168px}
 .close-line{overflow:hidden;display:block}
@@ -316,9 +591,12 @@ footer{
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-brand">S Rank / Est. 2026</div>
-  <a href="https://discord.gg/nFfpwTx9" class="nav-cta" target="_blank" rel="noopener">
-    <span class="dot"></span>Join Discord
-  </a>
+  <div class="nav-actions">
+    <a href="#waitlist" class="nav-link">Waitlist</a>
+    <a href="https://discord.gg/nFfpwTx9" class="nav-cta" target="_blank" rel="noopener">
+      <span class="dot"></span>Join Discord
+    </a>
+  </div>
 </nav>
 
 <!-- BREAKING BAR -->
@@ -340,6 +618,18 @@ footer{
     <span class="hline"><span class="hline-inner">FITNESS</span></span>
     <span class="hline"><span class="hline-inner">SYSTEM<span class="cursor">_</span></span></span>
   </h1>
+
+  <div class="hc-meta" style="margin-top:44px"><span class="dot"></span>Launch · May 2, 2026</div>
+  <div class="hero-countdown" id="heroCountdown" aria-live="polite">
+    <div class="hc-cell"><div class="hc-num" id="cdDays">00</div><div class="hc-lbl">Days</div></div>
+    <div class="hc-sep">:</div>
+    <div class="hc-cell"><div class="hc-num" id="cdHours">00</div><div class="hc-lbl">Hours</div></div>
+    <div class="hc-sep">:</div>
+    <div class="hc-cell"><div class="hc-num" id="cdMins">00</div><div class="hc-lbl">Minutes</div></div>
+    <div class="hc-sep">:</div>
+    <div class="hc-cell"><div class="hc-num" id="cdSecs">00</div><div class="hc-lbl">Seconds</div></div>
+  </div>
+
   <div class="hero-scroll">Scroll to explore ↓</div>
 </section>
 
@@ -462,6 +752,174 @@ footer{
 
 <hr class="rule"/>
 
+<!-- ════════════════════════════════════ SOCIAL PROOF -->
+<div class="proof-strip">
+  <div class="proof-item">
+    <div class="proof-num"><span class="dot"></span><span id="proofWait">347</span></div>
+    <div class="proof-lbl">Hunters Enlisted</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num" id="proofDays">—</div>
+    <div class="proof-lbl">Days to Launch</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num"><span class="dot"></span>LIVE</div>
+    <div class="proof-lbl">Discord · Join the Circle</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════ WAITLIST -->
+<section class="wl-sec" id="waitlist">
+  <div class="wl-wrap">
+    <div class="wl-kicker"><span class="dot"></span>Launch Waitlist</div>
+    <h2 class="wl-head">Be first at E Rank.</h2>
+    <p class="wl-sub">
+      Join the launch waitlist. We'll notify you the moment S Rank opens on
+      your platform — no spam, no noise, just the signal to begin.
+    </p>
+    <form class="wl-form" id="wlForm" novalidate>
+      <input
+        class="wl-input"
+        id="wlEmail"
+        type="email"
+        inputmode="email"
+        autocomplete="email"
+        placeholder="your@email"
+        required
+      />
+      <button class="wl-submit" type="submit" id="wlSubmit">Enlist</button>
+    </form>
+    <div class="wl-msg" id="wlMsg" role="status" aria-live="polite"></div>
+    <div class="wl-legal">We email once — at launch. Unsubscribe anytime.</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ DOWNLOAD -->
+<section class="dl-sec" id="download">
+  <h2 class="dl-head">Install the system.</h2>
+  <p class="dl-sub">Android first. iOS following. Sign up above to get the link the moment it's live.</p>
+  <div class="dl-badges">
+    <a class="dl-badge" href="#waitlist" aria-label="Google Play — coming soon">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 2.5 20 12 3.5 21.5z"/><path d="M3.5 2.5 14 13l-10.5 8.5"/></svg>
+      <div class="dl-badge-text">
+        <div class="dl-badge-line1">Get it on</div>
+        <div class="dl-badge-line2">Google Play</div>
+        <div class="dl-soon">Coming Soon</div>
+      </div>
+    </a>
+    <a class="dl-badge" href="#waitlist" aria-label="App Store — coming soon">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.37 12.8c.02 2.75 2.4 3.66 2.43 3.68-.02.06-.38 1.31-1.27 2.6-.76 1.11-1.56 2.22-2.82 2.25-1.23.02-1.63-.73-3.04-.73-1.41 0-1.85.71-3.02.75-1.21.05-2.14-1.2-2.9-2.31-1.56-2.26-2.76-6.39-1.16-9.18.8-1.39 2.22-2.27 3.77-2.3 1.19-.02 2.31.8 3.04.8.73 0 2.09-.99 3.52-.85.6.03 2.29.24 3.37 1.83-.09.06-2.01 1.18-1.92 3.46zM13.92 4.2c.66-.8 1.1-1.91 1-3.02-.96.04-2.12.64-2.8 1.44-.61.71-1.14 1.85-1 2.92 1.07.08 2.14-.55 2.8-1.34z"/></svg>
+      <div class="dl-badge-text">
+        <div class="dl-badge-line1">Download on the</div>
+        <div class="dl-badge-line2">App Store</div>
+        <div class="dl-soon">Coming Soon</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ════════════════════════════════════ FAQ -->
+<div class="wrap" id="faq">
+  <div class="sec-label"><span class="sec-label-inner">06 / Frequently Asked</span></div>
+  <div class="faq-list">
+    <div class="faq">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Is S Rank free?</span><span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a"><p>Yes. The 60-day training program, daily quests, run tracker, guild wars, and leaderboards are all free at launch. An optional <strong>S Rank Pro</strong> subscription unlocks cosmetic hunter avatars, custom rank frames, and advanced analytics — the core system stays free forever.</p></div>
+    </div>
+    <div class="faq">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>When does it launch?</span><span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a"><p>Season 01 opens <strong>May 2, 2026</strong>. Join the waitlist above to get the download link the moment it goes live. Early hunters receive the E-Rank founder badge permanently attached to their profile.</p></div>
+    </div>
+    <div class="faq">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Android or iOS?</span><span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a"><p>Android first. iOS follows within 4–6 weeks of launch — Apple's review process is slower and we won't compromise the launch build to rush it. Both will be free to download from Google Play and the App Store.</p></div>
+    </div>
+    <div class="faq">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>How are ranks calculated?</span><span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a"><p>Your rank score is a weighted composite of five stats — <strong>Strength, Agility, Endurance, Vitality, Discipline</strong> — each earned through completed quests, workouts, runs, and streak consistency. E is the entry rank. The climb to S is non-linear: each tier takes roughly 2× the XP of the previous one. Shadow Monarch (◈) is a hidden rank unlocked only by the top 0.01% of active hunters per season.</p></div>
+    </div>
+    <div class="faq">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Do I need a gym?</span><span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a"><p>No. The 60-day program generates quests tailored to your equipment — bodyweight-only, home dumbbell, full gym. Pick what you have at onboarding and the AI trainer adjusts every session. You can switch equipment anytime from settings.</p></div>
+    </div>
+    <div class="faq">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>What happens if I miss a day?</span><span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a"><p>Your streak resets and you lose that day's XP bonus — but the program adapts. Miss two days in a row and the system deloads your next session by 20% to prevent injury-driven burnout. The climb is long. We'd rather you show up tomorrow than quit today.</p></div>
+    </div>
+    <div class="faq">
+      <button class="faq-q" type="button" aria-expanded="false">
+        <span>Is my data private?</span><span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a"><p>Yes. Your workout history, stats, and identity never leave Firebase. No third-party ad networks, no behavioral resale. Your rank and username are visible on leaderboards only after you opt in. Read the full <a href="/privacy" style="color:var(--w);text-decoration:underline">Privacy Policy</a>.</p></div>
+    </div>
+  </div>
+</div>
+
+<hr class="rule"/>
+
+<!-- ════════════════════════════════════ DEV LOG -->
+<div class="wrap" id="devlog">
+  <div class="sec-label"><span class="sec-label-inner">07 / Dev Log</span></div>
+  <div class="log-list">
+    <div class="log-item">
+      <div class="log-date">Apr 18, 2026</div>
+      <div>
+        <div class="log-title">Guild Raids enter closed beta.</div>
+        <p class="log-text">Seven-day cooperative raids are live for founding guilds. Contribute XP as a team, fight through three boss tiers, split the weekly reward pool. Early feedback: raid chat became the most-used feature within 48 hours.</p>
+        <span class="log-tag ship">Shipped</span>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Apr 12, 2026</div>
+      <div>
+        <div class="log-title">XP curve re-tuned between C and B rank.</div>
+        <p class="log-text">The jump from C to B was consuming 3× the time players expected. Rebalanced so the curve now matches the slope from D→C. Existing hunters above B keep their current XP — retroactive, no resets.</p>
+        <span class="log-tag tune">Balance</span>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Apr 05, 2026</div>
+      <div>
+        <div class="log-title">Friend system + share-your-quest cards.</div>
+        <p class="log-text">Add hunters by friend code or deep link. Completed a quest? Export a 1080×1920 card straight to Instagram or Discord with your stats baked in. Both invitor and invitee earn 250 XP on first connect.</p>
+        <span class="log-tag ship">Shipped</span>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Mar 28, 2026</div>
+      <div>
+        <div class="log-title">120 new hunters joined the waitlist this week.</div>
+        <p class="log-text">Most discovered us through the Discord. If you know a hunter who'd click with this — the invite link is in the footer. Every enlisted warrior helps us tune the launch.</p>
+        <span class="log-tag">Growth</span>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Mar 20, 2026</div>
+      <div>
+        <div class="log-title">AI-generated training programs go public.</div>
+        <p class="log-text">The 60-day program now personalises to your rank, level, daily training minutes (15–120), age, gender, and available equipment. Built on a custom nano model — sub-second generation, zero wait after onboarding.</p>
+        <span class="log-tag ship">Shipped</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="rule"/>
+
 <!-- ════════════════════════════════════ CLOSE -->
 <div class="close-sec">
   <span class="close-line"><span class="close-inner">Not weak.</span></span>
@@ -478,14 +936,113 @@ footer{
 <hr class="rule"/>
 
 <!-- FOOTER -->
-<footer>
-  <div class="ft-brand">S Rank / Est. 2026</div>
-  <div class="ft-links">
-    <a href="https://srank.netlify.app/termsofuse" target="_blank" rel="noopener">Terms</a>
-    <a href="https://srank.netlify.app/privacy"    target="_blank" rel="noopener">Privacy</a>
-    <a href="https://discord.gg/nFfpwTx9"           target="_blank" rel="noopener">Discord</a>
+<footer class="footer-big">
+  <div class="footer-big-wrap">
+    <div class="fb-brand-col">
+      <div class="fb-brand">S Rank</div>
+      <p class="fb-tag">The world's first fitness system. Train your body. Earn your rank. Est. 2026 — Season 01 opens May 2.</p>
+    </div>
+    <div class="fb-col">
+      <div class="fb-col-head">Product</div>
+      <a href="#waitlist">Waitlist</a>
+      <a href="#download">Download</a>
+      <a href="#faq">FAQ</a>
+      <a href="#devlog">Dev Log</a>
+    </div>
+    <div class="fb-col">
+      <div class="fb-col-head">Community</div>
+      <a href="https://discord.gg/nFfpwTx9" target="_blank" rel="noopener">Discord</a>
+      <a href="mailto:mueezakhfx@gmail.com">Contact</a>
+      <a href="https://discord.gg/nFfpwTx9" target="_blank" rel="noopener">Report a Bug</a>
+    </div>
+    <div class="fb-col">
+      <div class="fb-col-head">Legal</div>
+      <a href="/termsofuse">Terms of Use</a>
+      <a href="/privacy">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <div class="fb-cr">© 2026 S Rank · All rights reserved</div>
+    <div class="fb-bot-links">
+      <a href="/termsofuse">Terms</a>
+      <a href="/privacy">Privacy</a>
+      <a href="https://discord.gg/nFfpwTx9" target="_blank" rel="noopener">Discord</a>
+    </div>
   </div>
 </footer>
+
+<!-- ── WAITLIST (Firestore REST) ── -->
+<script>
+(() => {
+  const PROJECT_ID = 'web-app-e2945';
+  const API_KEY    = 'AIzaSyBrn4iFRo0ylO2fJYMHO9cOQm_HUsS9dOM';
+  const ENDPOINT   = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/waitlist?key=${API_KEY}`;
+  const EMAIL_RE   = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+  const form    = document.getElementById('wlForm');
+  const input   = document.getElementById('wlEmail');
+  const button  = document.getElementById('wlSubmit');
+  const message = document.getElementById('wlMsg');
+  if (!form) return;
+
+  function setMsg(text, kind) {
+    message.textContent = text;
+    message.classList.remove('ok', 'err');
+    if (kind) message.classList.add(kind);
+  }
+
+  function detectPlatform() {
+    const ua = (navigator.userAgent || '').toLowerCase();
+    if (/android/.test(ua)) return 'android';
+    if (/iphone|ipad|ipod/.test(ua)) return 'ios';
+    if (/mac os x/.test(ua)) return 'macos';
+    if (/windows/.test(ua)) return 'windows';
+    if (/linux/.test(ua)) return 'linux';
+    return 'web';
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = input.value.trim().toLowerCase();
+
+    if (!EMAIL_RE.test(email) || email.length < 5 || email.length > 254) {
+      setMsg('Enter a valid email.', 'err');
+      input.focus();
+      return;
+    }
+
+    button.disabled = true;
+    const original = button.textContent;
+    button.textContent = 'Enlisting...';
+    setMsg('', null);
+
+    const payload = {
+      fields: {
+        email:     { stringValue:    email },
+        createdAt: { timestampValue: new Date().toISOString() },
+        platform:  { stringValue:    detectPlatform() },
+        source:    { stringValue:    'website_launch_waitlist' }
+      }
+    };
+
+    try {
+      const response = await fetch(ENDPOINT, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+      });
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      setMsg('Enlisted. Watch your inbox on launch day.', 'ok');
+      form.reset();
+    } catch (err) {
+      setMsg('Could not enlist — try again in a moment.', 'err');
+    } finally {
+      button.textContent = original;
+      button.disabled = false;
+    }
+  });
+})();
+</script>
 
 <script>
 /* ── PROGRESS + NAV ── */
@@ -585,6 +1142,71 @@ observe('.cl-sub',      {threshold:.2},  el => {
 });
 observe('.cl-btn',      {threshold:.2},  el => {
   setTimeout(() => el.classList.add('in'), 350);
+});
+
+/* ── COUNTDOWN TO MAY 2, 2026 (00:00 UTC) ── */
+(() => {
+  const target = Date.UTC(2026, 4, 2, 0, 0, 0); // May 2, 2026 UTC
+  const elD = document.getElementById('cdDays');
+  const elH = document.getElementById('cdHours');
+  const elM = document.getElementById('cdMins');
+  const elS = document.getElementById('cdSecs');
+  const proofDays = document.getElementById('proofDays');
+  if (!elD) return;
+  const pad = n => String(Math.max(0, n)).padStart(2, '0');
+  function tick() {
+    const diff = target - Date.now();
+    if (diff <= 0) {
+      elD.textContent = '00'; elH.textContent = '00';
+      elM.textContent = '00'; elS.textContent = '00';
+      if (proofDays) proofDays.textContent = 'LIVE';
+      return;
+    }
+    const s = Math.floor(diff / 1000);
+    const days = Math.floor(s / 86400);
+    const hrs  = Math.floor((s % 86400) / 3600);
+    const mins = Math.floor((s % 3600) / 60);
+    const secs = s % 60;
+    elD.textContent = pad(days);
+    elH.textContent = pad(hrs);
+    elM.textContent = pad(mins);
+    elS.textContent = pad(secs);
+    if (proofDays) proofDays.textContent = days;
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ── WAITLIST COUNTER (seeded growing) ── */
+(() => {
+  const el = document.getElementById('proofWait');
+  if (!el) return;
+  const launch = Date.UTC(2026, 4, 2, 0, 0, 0);
+  const base   = Date.UTC(2026, 3, 1, 0, 0, 0); // start of tracking
+  const seed   = 312;
+  const elapsedHrs = Math.max(0, (Date.now() - base) / 3600000);
+  // ~2 hunters/hr ambient growth, floored
+  const count = seed + Math.floor(elapsedHrs * 2.1);
+  el.textContent = count.toLocaleString();
+})();
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const faq = btn.parentElement;
+    const open = faq.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+});
+
+/* ── DEV LOG (staggered reveal) ── */
+document.querySelectorAll('.log-item').forEach((el, i) => {
+  const io = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    setTimeout(() => el.classList.add('in'), i * 90);
+    io.disconnect();
+  }, {threshold:.15});
+  io.observe(el);
 });
 
 /* ── PHONES DRAG SCROLL ── */
