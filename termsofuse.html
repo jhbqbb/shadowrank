@@ -3,19 +3,16 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Terms of Use — S Rank</title>
+<title>Terms of Use - S Rank</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --green:#30D158;
   --w:#fff;
   --muted:rgba(255,255,255,0.42);
-  --dim:rgba(255,255,255,0.12);
   --border:rgba(255,255,255,0.09);
-  --ease-out:cubic-bezier(0.16,1,0.3,1);
 }
 html{scroll-behavior:smooth}
 body{
@@ -25,8 +22,6 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit;text-decoration:none}
-
-/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:300;
   display:flex;align-items:center;justify-content:space-between;
@@ -42,8 +37,6 @@ nav{
 }
 .nav-back:hover{color:var(--w)}
 .nav-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* CONTENT */
 .legal-wrap{
   max-width:720px;margin:0 auto;
   padding:110px 36px 100px;
@@ -80,24 +73,20 @@ nav{
   opacity:.7;transition:opacity .2s;
 }
 .legal-body a:hover{opacity:1}
-
 hr.rule{border:none;border-top:1px solid var(--border);margin:0}
-
-/* FOOTER */
 footer{
   padding:38px 36px;border-top:1px solid var(--border);
   display:flex;justify-content:space-between;align-items:center;
   flex-wrap:wrap;gap:16px;
 }
 .ft-brand{font-size:9.5px;font-weight:800;letter-spacing:4px;color:rgba(255,255,255,.28);text-transform:uppercase}
-.ft-links{display:flex;gap:24px}
+.ft-links{display:flex;gap:24px;flex-wrap:wrap}
 .ft-links a{
   font-size:9.5px;font-weight:600;letter-spacing:2.5px;
   color:rgba(255,255,255,.28);text-transform:uppercase;
   transition:color .2s;
 }
 .ft-links a:hover{color:var(--w)}
-
 @media(max-width:720px){
   nav{padding:0 20px}
   .legal-wrap{padding:96px 20px 80px}
@@ -118,10 +107,9 @@ footer{
 <div class="legal-wrap">
   <div class="legal-eyebrow">Legal</div>
   <div class="legal-title">Terms<br>of Use</div>
-  <div class="legal-date">Effective Date: April 18, 2026</div>
+  <div class="legal-date">Effective Date: April 24, 2026</div>
 
   <div class="legal-body">
-
     <h2>1. Agreement</h2>
     <p>By downloading or using S Rank ("the App"), you agree to be bound by these Terms of Use. If you do not agree, do not use the App.</p>
 
@@ -134,14 +122,14 @@ footer{
 
     <h2>4. Account &amp; Data</h2>
     <p>You are responsible for maintaining the confidentiality of your account credentials. You agree not to share your account or use another user's account. We reserve the right to suspend or terminate accounts that violate these Terms.</p>
-    <p>Your fitness data, progress, and quest history are stored on our servers to enable cross-device sync. See our <a href="https://srank.netlify.app/privacy">Privacy Policy</a> for details on how we collect and use your data.</p>
+    <p>Your fitness data, progress, and quest history are stored on our servers to enable cross-device sync. See our <a href="https://srank.netlify.app/privacy">Privacy Policy</a> for details on how we collect and use your data. You can delete your account in the App under Settings &gt; Delete Account or by using our <a href="https://srank.netlify.app/delete-account">Delete Account</a> page.</p>
 
     <h2>5. Subscriptions &amp; Purchases</h2>
-    <p>S Rank offers optional premium subscriptions (monthly, yearly) and a lifetime access option, processed through the Google Play Store or Apple App Store. All purchases are subject to the respective store's terms. Subscriptions auto-renew unless cancelled at least 24 hours before the current period ends.</p>
+    <p>S Rank offers optional premium subscriptions (monthly, yearly) and a lifetime access option. For the current Android release, purchases are processed through Google Play and managed through RevenueCat. Subscriptions auto-renew unless cancelled at least 24 hours before the current period ends.</p>
     <p>Refunds are handled according to the policies of the applicable store. For questions about your purchase, contact us at <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a>.</p>
 
     <h2>6. Intellectual Property</h2>
-    <p>All content within the App — including the S Rank name, logo, rank system, quest designs, animations, and Solo Leveling-inspired UI — is the property of S Rank and protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our prior written consent.</p>
+    <p>All content within the App, including the S Rank name, logo, rank system, quest designs, and animations, is the property of S Rank and protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our prior written consent.</p>
 
     <h2>7. Prohibited Conduct</h2>
     <p>You agree not to:</p>
@@ -160,8 +148,7 @@ footer{
     <p>We may update these Terms from time to time. Continued use of the App after changes constitutes acceptance of the updated Terms. We will notify you of material changes through the App or by email where required by law.</p>
 
     <h2>10. Contact</h2>
-    <p>Questions about these Terms? Reach us at <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a> or visit <a href="https://srank.netlify.app">srank.netlify.app</a>.</p>
-
+    <p>Questions about these Terms? Reach us at <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a>, visit <a href="https://srank.netlify.app">srank.netlify.app</a>, or use <a href="https://srank.netlify.app/delete-account">srank.netlify.app/delete-account</a>.</p>
   </div>
 </div>
 
@@ -172,6 +159,7 @@ footer{
   <div class="ft-links">
     <a href="https://srank.netlify.app/termsofuse">Terms</a>
     <a href="https://srank.netlify.app/privacy">Privacy</a>
+    <a href="https://srank.netlify.app/delete-account">Delete Account</a>
     <a href="https://discord.gg/nFfpwTx9" target="_blank" rel="noopener">Discord</a>
   </div>
 </footer>

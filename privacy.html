@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Privacy Policy — S Rank</title>
+<title>Privacy Policy - S Rank</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
@@ -15,7 +15,6 @@
   --muted:rgba(255,255,255,0.42);
   --dim:rgba(255,255,255,0.12);
   --border:rgba(255,255,255,0.09);
-  --ease-out:cubic-bezier(0.16,1,0.3,1);
 }
 html{scroll-behavior:smooth}
 body{
@@ -25,8 +24,6 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit;text-decoration:none}
-
-/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:300;
   display:flex;align-items:center;justify-content:space-between;
@@ -42,8 +39,6 @@ nav{
 }
 .nav-back:hover{color:var(--w)}
 .nav-back svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* CONTENT */
 .legal-wrap{
   max-width:720px;margin:0 auto;
   padding:110px 36px 100px;
@@ -80,24 +75,20 @@ nav{
   opacity:.7;transition:opacity .2s;
 }
 .legal-body a:hover{opacity:1}
-
 hr.rule{border:none;border-top:1px solid var(--border);margin:0}
-
-/* FOOTER */
 footer{
   padding:38px 36px;border-top:1px solid var(--border);
   display:flex;justify-content:space-between;align-items:center;
   flex-wrap:wrap;gap:16px;
 }
 .ft-brand{font-size:9.5px;font-weight:800;letter-spacing:4px;color:rgba(255,255,255,.28);text-transform:uppercase}
-.ft-links{display:flex;gap:24px}
+.ft-links{display:flex;gap:24px;flex-wrap:wrap}
 .ft-links a{
   font-size:9.5px;font-weight:600;letter-spacing:2.5px;
   color:rgba(255,255,255,.28);text-transform:uppercase;
   transition:color .2s;
 }
 .ft-links a:hover{color:var(--w)}
-
 @media(max-width:720px){
   nav{padding:0 20px}
   .legal-wrap{padding:96px 20px 80px}
@@ -118,10 +109,9 @@ footer{
 <div class="legal-wrap">
   <div class="legal-eyebrow">Legal</div>
   <div class="legal-title">Privacy<br>Policy</div>
-  <div class="legal-date">Effective Date: April 18, 2026</div>
+  <div class="legal-date">Effective Date: April 24, 2026</div>
 
   <div class="legal-body">
-
     <h2>1. Overview</h2>
     <p>S Rank ("we", "us", "our") respects your privacy. This Privacy Policy explains what data we collect, how we use it, and your rights regarding that data. By using the S Rank app ("the App"), you agree to the practices described here.</p>
 
@@ -129,10 +119,13 @@ footer{
     <p>We collect the following categories of information:</p>
     <ul>
       <li><strong>Account Data:</strong> Email address and password hash when you create an account.</li>
-      <li><strong>Profile Data:</strong> Display name, avatar image, age, weight, height, fitness goals, and equipment preferences you provide during onboarding or in settings.</li>
-      <li><strong>Fitness Activity:</strong> Daily quest completions, XP earned, rank progression, streak days, workout sessions, and training program progress.</li>
-      <li><strong>Device Data:</strong> Device type, operating system, and app version, used for crash reporting and compatibility.</li>
-      <li><strong>Purchase Data:</strong> Subscription status and purchase history, managed through Google Play or the Apple App Store. We do not store your payment card details.</li>
+      <li><strong>Profile Data:</strong> Display name, avatar image, age, weight, height, gender, fitness goals, motivation, injuries, focus areas, workout frequency, and equipment preferences you provide during onboarding or in settings.</li>
+      <li><strong>Fitness Activity:</strong> Daily quest completions, XP earned, rank progression, streak days, workout sessions, training program progress, and related in-app progression data.</li>
+      <li><strong>Health Connect Data:</strong> If you connect Android Health Connect, the App may read steps, distance, exercise time, active calories, total calories, heart rate, and resting heart rate data that Health Connect makes available to the App. Raw Health Connect metrics are processed on-device to update quests and stats; we do not store raw Health Connect readings in your cloud profile.</li>
+      <li><strong>Uploads You Choose To Add:</strong> Avatar images, guild images, or other media you upload from your camera or photo library.</li>
+      <li><strong>Device, Diagnostics, and Notification Data:</strong> Device type, operating system, app version, crash logs, basic diagnostic events, Firebase Cloud Messaging token(s), and notification open/interact events.</li>
+      <li><strong>Analytics Data:</strong> In-app events such as onboarding progress, quest completion, workout completion, paywall views, purchases, referrals, and notification opens.</li>
+      <li><strong>Purchase Data:</strong> Subscription status and purchase history, managed through Google Play and RevenueCat. We do not store your payment card details.</li>
     </ul>
 
     <h2>3. How We Use Your Data</h2>
@@ -140,28 +133,34 @@ footer{
     <ul>
       <li>Provide and personalize your fitness experience (quests, training plans, rank system)</li>
       <li>Sync your progress across devices</li>
+      <li>Sync eligible quest and wellness progress from Health Connect when you grant access</li>
+      <li>Generate AI-assisted training programs from the profile and onboarding details you provide</li>
       <li>Display leaderboard and guild features</li>
-      <li>Send account-related emails (password reset, important notices)</li>
+      <li>Send push notifications and account-related emails (password reset, important notices)</li>
+      <li>Measure feature usage, notification engagement, and purchase conversion</li>
       <li>Improve app performance and fix bugs</li>
       <li>Process and manage subscriptions</li>
     </ul>
-    <p>We do not sell your personal data to third parties.</p>
+    <p>We do not sell your personal data to third parties. We do not use Health Connect data for advertising, and we do not share raw Health Connect readings with advertising networks.</p>
 
     <h2>4. Data Storage &amp; Security</h2>
-    <p>Your data is stored securely using Google Firebase (Firestore and Firebase Auth), hosted in Google Cloud. We implement industry-standard security measures including encrypted connections (TLS), access controls, and Firestore security rules to protect your information.</p>
+    <p>Your data is stored securely using Google Firebase (Firestore, Firebase Auth, Firebase Storage, Analytics, and Cloud Messaging), hosted in Google Cloud. We implement industry-standard security measures including encrypted connections (TLS), access controls, and Firestore security rules to protect your information. Health Connect data used for quest sync is processed locally on your device unless it has already been transformed into in-app progression data such as quest completion or XP changes.</p>
     <p>No method of transmission over the internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
 
     <h2>5. Third-Party Services</h2>
     <p>The App uses the following third-party services, each governed by their own privacy policy:</p>
     <ul>
-      <li><strong>Google Firebase</strong> — Authentication, database, and storage</li>
-      <li><strong>RevenueCat</strong> — Subscription and purchase management</li>
-      <li><strong>Google Play / Apple App Store</strong> — App distribution and in-app purchases</li>
-      <li><strong>OpenAI</strong> — AI-generated training program content (no personal fitness history is shared beyond your goals and rank level)</li>
+      <li><strong>Google Firebase</strong> - Authentication, database, storage, analytics, and push messaging</li>
+      <li><strong>Google Health Connect</strong> - Optional fitness and wellness data access on Android</li>
+      <li><strong>RevenueCat</strong> - Subscription and purchase management</li>
+      <li><strong>Google Play</strong> - Android app distribution and billing</li>
+      <li><strong>OpenAI</strong> - AI-generated training program content using the onboarding details you provide for program creation</li>
+      <li><strong>Sentry</strong> - Crash reporting and diagnostic monitoring</li>
     </ul>
+    <p>When generating a training program, we may send your self-reported onboarding details such as goal, motivation, fitness level, equipment, injuries, focus areas, workout frequency, age, gender, rank, level, daily training time, and timezone to OpenAI. We may also derive non-identifying research prompts from those fitness preferences to improve program quality.</p>
 
     <h2>6. Data Retention</h2>
-    <p>We retain your account data for as long as your account is active. If you delete your account, we will delete your personal data within 30 days, except where retention is required by law.</p>
+    <p>We retain your account data for as long as your account is active. If you delete your account in the App or request deletion through our <a href="https://srank.netlify.app/delete-account">Delete Account</a> page, we will remove your account data from active systems as soon as reasonably possible and clear remaining backups within 30 days, except where retention is required by law.</p>
 
     <h2>7. Children's Privacy</h2>
     <p>The App is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data, contact us at <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a> and we will delete it promptly.</p>
@@ -175,7 +174,7 @@ footer{
       <li>Object to or restrict certain processing</li>
       <li>Data portability (receive your data in a structured format)</li>
     </ul>
-    <p>To exercise these rights, contact us at <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a>.</p>
+    <p>To exercise these rights, contact us at <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a> or use our <a href="https://srank.netlify.app/delete-account">Delete Account</a> page.</p>
 
     <h2>9. Changes to This Policy</h2>
     <p>We may update this Privacy Policy periodically. We will notify you of significant changes through the App or by email. Continued use of the App after changes take effect constitutes acceptance of the updated policy.</p>
@@ -184,9 +183,9 @@ footer{
     <p>Questions or concerns about your privacy? Contact us:</p>
     <p>
       Email: <a href="mailto:supportsrank@gmail.com">supportsrank@gmail.com</a><br/>
-      Website: <a href="https://srank.netlify.app">srank.netlify.app</a>
+      Website: <a href="https://srank.netlify.app">srank.netlify.app</a><br/>
+      Delete Account: <a href="https://srank.netlify.app/delete-account">srank.netlify.app/delete-account</a>
     </p>
-
   </div>
 </div>
 
@@ -197,6 +196,7 @@ footer{
   <div class="ft-links">
     <a href="https://srank.netlify.app/termsofuse">Terms</a>
     <a href="https://srank.netlify.app/privacy">Privacy</a>
+    <a href="https://srank.netlify.app/delete-account">Delete Account</a>
     <a href="https://discord.gg/nFfpwTx9" target="_blank" rel="noopener">Discord</a>
   </div>
 </footer>

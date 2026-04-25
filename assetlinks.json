@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.shadowrank.shadowrank_rn",
+      "sha256_cert_fingerprints": [
+        "AD:48:F5:8C:11:FE:F1:C5:60:FA:31:7C:8F:FE:30:02:D7:39:28:B2:C1:EA:86:AF:0D:E7:6C:A0:52:D1:56:37"
+      ]
+    }
+  }
+]
