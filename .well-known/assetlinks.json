@@ -1,0 +1,16 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.shadowrank.shadowrank_rn",
+      "sha256_cert_fingerprints": [
+        "AD:48:F5:8C:11:FE:F1:C5:60:FA:31:7C:8F:FE:30:02:D7:39:28:B2:C1:EA:86:AF:0D:E7:6C:A0:52:D1:56:37",
+        "52:A0:62:FB:BE:63:95:C5:05:AA:57:29:38:75:9C:76:8D:FC:CF:01:8E:F6:E4:70:9D:7E:0B:04:1C:14:F9:93"
+      ]
+    }
+  }
+]
