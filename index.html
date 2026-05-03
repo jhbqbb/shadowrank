@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>S Rank — The World's First Fitness System | Level Up IRL</title>
-<meta name="description" content="S Rank is the Solo Leveling-inspired fitness RPG. 60-day training program, daily quests, guilds, and 7 ranks from E to S. Train your body. Earn your rank."/>
+<meta name="description" content="S Rank is the Solo Leveling-inspired fitness RPG, now available on Google Play. 60-day training program, daily quests, guilds, and 7 ranks from E to S."/>
 <meta name="keywords" content="solo leveling fitness, gamified workout app, fitness rpg, daily quest tracker, guild workout, 60-day program, rank up fitness, level up body"/>
 <meta name="author" content="S Rank"/>
 <meta name="theme-color" content="#000000"/>
@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://srank.netlify.app/"/>
 <meta property="og:site_name" content="S Rank"/>
 <meta property="og:title" content="S Rank — The World's First Fitness System"/>
-<meta property="og:description" content="Every warrior starts at E Rank. 60 days of precision training that levels your body and earns your rank. Train like it's the game it was always meant to be."/>
+<meta property="og:description" content="Now available on Google Play. Every warrior starts at E Rank: 60 days of precision training that levels your body and earns your rank."/>
 <meta property="og:image" content="https://srank.netlify.app/img/og-banner.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -24,7 +24,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="S Rank — The World's First Fitness System"/>
-<meta name="twitter:description" content="Solo Leveling-inspired fitness RPG. 60-day program. Daily quests. Guild wars. Rise from E Rank."/>
+<meta name="twitter:description" content="Now available on Google Play. Solo Leveling-inspired fitness RPG with a 60-day program, daily quests, and guild wars."/>
 <meta name="twitter:image" content="https://srank.netlify.app/img/og-banner.jpg"/>
 
 <!-- Icons -->
@@ -40,6 +40,8 @@
   "applicationCategory":"HealthApplication",
   "operatingSystem":"Android",
   "description":"Solo Leveling-inspired fitness RPG with a 60-day training program, daily quests, guild wars, and 7 ranks from E to S.",
+  "url":"https://play.google.com/store/apps/details?id=com.shadowrank.shadowrank_rn&pcampaignid=web_share",
+  "downloadUrl":"https://play.google.com/store/apps/details?id=com.shadowrank.shadowrank_rn&pcampaignid=web_share",
   "offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"}
 }
 </script>
@@ -166,6 +168,16 @@ nav.solid{background:rgba(0,0,0,.88);backdrop-filter:blur(20px);-webkit-backdrop
   letter-spacing:3.5px;color:rgba(255,255,255,.28);text-transform:uppercase;
   animation:fu .85s var(--ease-out) both .7s, bob 3.5s ease-in-out 1.4s infinite;
 }
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px;animation:fu .85s var(--ease-out) both .62s}
+.hero-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--w);color:#000;border:1px solid var(--w);
+  font-size:10.5px;font-weight:850;letter-spacing:2.8px;text-transform:uppercase;
+  padding:16px 28px;border-radius:100px;transition:transform .2s,filter .2s;
+}
+.hero-btn:hover{transform:translateY(-2px);filter:brightness(.9)}
+.hero-btn.secondary{background:transparent;color:var(--w);border-color:rgba(255,255,255,.22)}
+.hero-btn.secondary:hover{border-color:rgba(255,255,255,.45);filter:none}
 @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideUp{from{transform:translateY(105%)}to{transform:translateY(0)}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
@@ -302,58 +314,32 @@ hr.rule{border:none;border-top:1px solid var(--border)}
   letter-spacing:2.5px;color:var(--muted);text-transform:uppercase;
 }
 
-/* ══════════════════════ WAITLIST */
-.wl-sec{padding:96px 36px 112px;border-top:1px solid var(--border)}
-.wl-wrap{max-width:720px;margin:0 auto;text-align:center}
-.wl-kicker{
+/* ══════════════════════ LAUNCH CTA */
+.launch-sec{padding:104px 36px 116px;border-top:1px solid var(--border);position:relative;overflow:hidden}
+.launch-sec::before{
+  content:'';position:absolute;inset:20px 12vw auto;height:180px;
+  background:radial-gradient(circle,rgba(48,209,88,.13),transparent 64%);
+  pointer-events:none;filter:blur(18px);
+}
+.launch-wrap{max-width:780px;margin:0 auto;text-align:center;position:relative}
+.launch-kicker{
   font-size:9.5px;font-weight:700;letter-spacing:4.5px;color:var(--green);
   text-transform:uppercase;margin-bottom:22px;
   display:inline-flex;align-items:center;gap:8px;
 }
-.wl-kicker .dot{width:5px;height:5px}
-.wl-head{
+.launch-kicker .dot{width:5px;height:5px}
+.launch-head{
   font-size:clamp(32px,5.5vw,56px);font-weight:900;line-height:1;
   letter-spacing:-1.5px;margin-bottom:18px;
 }
-.wl-sub{
+.launch-sub{
   font-size:clamp(13px,1.5vw,15px);font-weight:400;color:var(--muted);
   line-height:1.65;max-width:520px;margin:0 auto 36px;
 }
-.wl-form{
-  display:flex;gap:8px;max-width:480px;margin:0 auto;
-  flex-wrap:wrap;justify-content:center;
-}
-.wl-input{
-  flex:1 1 260px;min-width:0;
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border);
-  color:var(--w);font-family:inherit;font-size:13px;font-weight:500;
-  letter-spacing:.2px;
-  padding:15px 18px;border-radius:100px;
-  outline:none;transition:border-color .2s,background .2s;
-}
-.wl-input::placeholder{color:rgba(255,255,255,.32);letter-spacing:1.8px;font-size:10.5px;font-weight:700;text-transform:uppercase}
-.wl-input:focus{border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.06)}
-.wl-submit{
-  background:var(--w);color:#000;
-  font-family:inherit;font-size:10.5px;font-weight:800;
-  letter-spacing:2.8px;text-transform:uppercase;
-  padding:15px 26px;border:none;border-radius:100px;
-  cursor:pointer;transition:opacity .2s,transform .2s;
-  white-space:nowrap;
-}
-.wl-submit:hover:not(:disabled){opacity:.82}
-.wl-submit:active:not(:disabled){transform:scale(.97)}
-.wl-submit:disabled{opacity:.5;cursor:not-allowed}
-.wl-msg{
-  margin-top:18px;font-size:11px;font-weight:600;letter-spacing:2.5px;
-  text-transform:uppercase;min-height:15px;transition:color .25s;
-}
-.wl-msg.ok{color:var(--green)}
-.wl-msg.err{color:#FF4A55}
-.wl-legal{
-  margin-top:22px;font-size:10px;color:rgba(255,255,255,.22);
-  letter-spacing:1.2px;
+.launch-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.launch-note{
+  margin-top:22px;font-size:10px;color:rgba(255,255,255,.28);
+  letter-spacing:1.6px;text-transform:uppercase;
 }
 
 /* ══════════════════════ DOWNLOAD */
@@ -374,17 +360,21 @@ hr.rule{border:none;border-top:1px solid var(--border)}
   transition:background .2s,border-color .2s,transform .2s;
   min-width:190px;
 }
+.dl-badge.primary{background:rgba(255,255,255,.95);color:#000;border-color:rgba(255,255,255,.95)}
 .dl-badge:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22);transform:translateY(-2px)}
+.dl-badge.primary:hover{background:#fff;border-color:#fff}
 .dl-badge svg{width:26px;height:26px;flex-shrink:0}
 .dl-badge-text{text-align:left;line-height:1.1}
 .dl-badge-line1{
   font-size:9px;font-weight:600;letter-spacing:1.8px;
   color:rgba(255,255,255,.52);text-transform:uppercase;
 }
+.dl-badge.primary .dl-badge-line1{color:rgba(0,0,0,.54)}
 .dl-badge-line2{
   font-size:15px;font-weight:700;color:var(--w);margin-top:2px;letter-spacing:.3px;
 }
-.dl-soon{
+.dl-badge.primary .dl-badge-line2{color:#000}
+.dl-live{
   font-size:8.5px;font-weight:700;letter-spacing:2.5px;
   color:var(--green);text-transform:uppercase;margin-top:3px;
 }
@@ -591,9 +581,9 @@ footer{
 <nav id="nav">
   <div class="nav-brand">S Rank / Est. 2026</div>
   <div class="nav-actions">
-    <a href="#waitlist" class="nav-link">Waitlist</a>
-    <a href="https://discord.gg/nFfpwTx9" class="nav-cta" target="_blank" rel="noopener">
-      <span class="dot"></span>Join Discord
+    <a href="#download" class="nav-link">Download</a>
+    <a href="https://play.google.com/store/apps/details?id=com.shadowrank.shadowrank_rn&pcampaignid=web_share" class="nav-cta" target="_blank" rel="noopener">
+      <span class="dot"></span>Google Play
     </a>
   </div>
 </nav>
@@ -603,8 +593,8 @@ footer{
   <div class="bar-label"><span class="dot"></span>Live</div>
   <div class="ticker-wrap">
     <div class="ticker">
-      <span>Season 01 Now Open &nbsp;·&nbsp; 60-Day Training Program Active &nbsp;·&nbsp; E Rank Entry — Begin Your Ascent &nbsp;·&nbsp; Daily Quests Reset Every 24h &nbsp;·&nbsp; Guild Leaderboard Live &nbsp;·&nbsp; Join Discord — Claim Early Access &nbsp;·&nbsp;</span>
-      <span>Season 01 Now Open &nbsp;·&nbsp; 60-Day Training Program Active &nbsp;·&nbsp; E Rank Entry — Begin Your Ascent &nbsp;·&nbsp; Daily Quests Reset Every 24h &nbsp;·&nbsp; Guild Leaderboard Live &nbsp;·&nbsp; Join Discord — Claim Early Access &nbsp;·&nbsp;</span>
+      <span>Now available on Google Play &nbsp;·&nbsp; 60-Day Training Program Active &nbsp;·&nbsp; E Rank Entry — Begin Your Ascent &nbsp;·&nbsp; Daily Quests Reset Every 24h &nbsp;·&nbsp; Guild Leaderboard Live &nbsp;·&nbsp; Android Release Live &nbsp;·&nbsp;</span>
+      <span>Now available on Google Play &nbsp;·&nbsp; 60-Day Training Program Active &nbsp;·&nbsp; E Rank Entry — Begin Your Ascent &nbsp;·&nbsp; Daily Quests Reset Every 24h &nbsp;·&nbsp; Guild Leaderboard Live &nbsp;·&nbsp; Android Release Live &nbsp;·&nbsp;</span>
     </div>
   </div>
 </div>
@@ -618,15 +608,12 @@ footer{
     <span class="hline"><span class="hline-inner">SYSTEM<span class="cursor">_</span></span></span>
   </h1>
 
-  <div class="hc-meta" style="margin-top:44px"><span class="dot"></span>Launch · May 2, 2026</div>
-  <div class="hero-countdown" id="heroCountdown" aria-live="polite">
-    <div class="hc-cell"><div class="hc-num" id="cdDays">00</div><div class="hc-lbl">Days</div></div>
-    <div class="hc-sep">:</div>
-    <div class="hc-cell"><div class="hc-num" id="cdHours">00</div><div class="hc-lbl">Hours</div></div>
-    <div class="hc-sep">:</div>
-    <div class="hc-cell"><div class="hc-num" id="cdMins">00</div><div class="hc-lbl">Minutes</div></div>
-    <div class="hc-sep">:</div>
-    <div class="hc-cell"><div class="hc-num" id="cdSecs">00</div><div class="hc-lbl">Seconds</div></div>
+  <div class="hc-meta" style="margin-top:44px"><span class="dot"></span>Now live on Google Play</div>
+  <div class="hero-actions" aria-label="Download S Rank">
+    <a class="hero-btn" href="https://play.google.com/store/apps/details?id=com.shadowrank.shadowrank_rn&pcampaignid=web_share" target="_blank" rel="noopener">
+      <span class="dot"></span>Download on Google Play
+    </a>
+    <a class="hero-btn secondary" href="#download">See Android Release</a>
   </div>
 
   <div class="hero-scroll">Scroll to explore ↓</div>
@@ -754,56 +741,49 @@ footer{
 <!-- ════════════════════════════════════ SOCIAL PROOF -->
 <div class="proof-strip">
   <div class="proof-item">
-    <div class="proof-num"><span class="dot"></span><span id="proofWait">347</span></div>
-    <div class="proof-lbl">Hunters Enlisted</div>
-  </div>
-  <div class="proof-item">
-    <div class="proof-num" id="proofDays">—</div>
-    <div class="proof-lbl">Days to Launch</div>
-  </div>
-  <div class="proof-item">
     <div class="proof-num"><span class="dot"></span>LIVE</div>
-    <div class="proof-lbl">Discord · Join the Circle</div>
+    <div class="proof-lbl">Google Play</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">60</div>
+    <div class="proof-lbl">Day Program</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-num">Android</div>
+    <div class="proof-lbl">Public Release</div>
   </div>
 </div>
 
-<!-- ════════════════════════════════════ WAITLIST -->
-<section class="wl-sec" id="waitlist">
-  <div class="wl-wrap">
-    <div class="wl-kicker"><span class="dot"></span>Launch Waitlist</div>
-    <h2 class="wl-head">Be first at E Rank.</h2>
-    <p class="wl-sub">
-      Join the launch waitlist. We'll notify you the moment S Rank opens on
-      your platform — no spam, no noise, just the signal to begin.
+<!-- ════════════════════════════════════ LAUNCH CTA -->
+<section class="launch-sec" id="release">
+  <div class="launch-wrap">
+    <div class="launch-kicker"><span class="dot"></span>Android release live</div>
+    <h2 class="launch-head">Start at E Rank today.</h2>
+    <p class="launch-sub">
+      S Rank is now available on Google Play. Install the Android app, generate
+      your 60-day program, and start earning XP through daily quests.
     </p>
-    <form class="wl-form" id="wlForm" novalidate>
-      <input
-        class="wl-input"
-        id="wlEmail"
-        type="email"
-        inputmode="email"
-        autocomplete="email"
-        placeholder="your@email"
-        required
-      />
-      <button class="wl-submit" type="submit" id="wlSubmit">Enlist</button>
-    </form>
-    <div class="wl-msg" id="wlMsg" role="status" aria-live="polite"></div>
-    <div class="wl-legal">We email once — at launch. Unsubscribe anytime.</div>
+    <div class="launch-actions">
+      <a class="hero-btn" href="https://play.google.com/store/apps/details?id=com.shadowrank.shadowrank_rn&pcampaignid=web_share" target="_blank" rel="noopener">
+        <span class="dot"></span>Open Google Play
+      </a>
+      <a class="hero-btn secondary" href="#faq">Read FAQ</a>
+    </div>
+    <div class="launch-note">Android only for the current public release.</div>
   </div>
 </section>
 
 <!-- ════════════════════════════════════ DOWNLOAD -->
 <section class="dl-sec" id="download">
   <h2 class="dl-head">Install the system.</h2>
-  <p class="dl-sub">Android launch first. Join the waitlist above to get the Google Play link the moment it goes live.</p>
+  <p class="dl-sub">The official Android release is available now. Google Play is the only supported download source.</p>
   <div class="dl-badges">
-    <a class="dl-badge" href="#waitlist" aria-label="Google Play — coming soon">
+    <a class="dl-badge primary" href="https://play.google.com/store/apps/details?id=com.shadowrank.shadowrank_rn&pcampaignid=web_share" target="_blank" rel="noopener" aria-label="Download S Rank on Google Play">
       <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 2.5 20 12 3.5 21.5z"/><path d="M3.5 2.5 14 13l-10.5 8.5"/></svg>
       <div class="dl-badge-text">
         <div class="dl-badge-line1">Get it on</div>
         <div class="dl-badge-line2">Google Play</div>
-        <div class="dl-soon">Coming Soon</div>
+        <div class="dl-live">Available now</div>
       </div>
     </a>
   </div>
@@ -819,13 +799,13 @@ footer{
       <button class="faq-q" type="button" aria-expanded="false">
         <span>How much does S Rank cost?</span><span class="faq-toggle">+</span>
       </button>
-      <div class="faq-a"><p>S Rank is a subscription. <strong>Monthly $9.99</strong> · <strong>Yearly $35</strong> (save 70%) · <strong>Lifetime</strong> one-time unlock. Every plan gets the full system — 60-day training program, daily quests, run tracker, guild wars, leaderboards, and every future season. The Discord and the waitlist are free to join.</p></div>
+      <div class="faq-a"><p>S Rank is a subscription. <strong>Monthly $9.99</strong> · <strong>Yearly $35</strong> (save 70%) · <strong>Lifetime</strong> one-time unlock. Every plan gets the full system — 60-day training program, daily quests, run tracker, guild wars, leaderboards, and every future season. The Discord community is free to join.</p></div>
     </div>
     <div class="faq">
       <button class="faq-q" type="button" aria-expanded="false">
-        <span>When does it launch?</span><span class="faq-toggle">+</span>
+        <span>Where can I download it?</span><span class="faq-toggle">+</span>
       </button>
-      <div class="faq-a"><p>Season 01 opens <strong>May 2, 2026</strong>. Join the waitlist above to get the download link the moment it goes live. Early hunters receive the E-Rank founder badge permanently attached to their profile.</p></div>
+      <div class="faq-a"><p>S Rank is available now on <a href="https://play.google.com/store/apps/details?id=com.shadowrank.shadowrank_rn&pcampaignid=web_share" target="_blank" rel="noopener" style="color:var(--w);text-decoration:underline">Google Play</a>. For safety and update support, use Google Play as the only download source.</p></div>
     </div>
     <div class="faq">
       <button class="faq-q" type="button" aria-expanded="false">
@@ -891,11 +871,11 @@ footer{
       </div>
     </div>
     <div class="log-item">
-      <div class="log-date">Mar 28, 2026</div>
+      <div class="log-date">May 02, 2026</div>
       <div>
-        <div class="log-title">120 new hunters joined the waitlist this week.</div>
-        <p class="log-text">Most discovered us through the Discord. If you know a hunter who'd click with this — the invite link is in the footer. Every enlisted warrior helps us tune the launch.</p>
-        <span class="log-tag">Growth</span>
+        <div class="log-title">S Rank is live on Google Play.</div>
+        <p class="log-text">The Android release is now public. New hunters can install from Google Play, complete onboarding, and generate their first 60-day training program.</p>
+        <span class="log-tag ship">Launch</span>
       </div>
     </div>
     <div class="log-item">
@@ -916,11 +896,11 @@ footer{
   <span class="close-line"><span class="close-inner">Not weak.</span></span>
   <span class="close-line"><span class="close-inner ghost">Not anymore.</span></span>
   <p class="cl-sub">
-    Season 01 is open. E Rank slots are filling.
-    Join the Discord to secure your early access and start your 60-day ascent.
+    Season 01 is open. Download S Rank from Google Play and start your
+    60-day ascent today.
   </p>
-  <a href="https://discord.gg/nFfpwTx9" class="cl-btn" target="_blank" rel="noopener">
-    <span class="dot"></span>Join Discord — Free
+  <a href="https://play.google.com/store/apps/details?id=com.shadowrank.shadowrank_rn&pcampaignid=web_share" class="cl-btn" target="_blank" rel="noopener">
+    <span class="dot"></span>Download on Google Play
   </a>
 </div>
 
@@ -931,11 +911,11 @@ footer{
   <div class="footer-big-wrap">
     <div class="fb-brand-col">
       <div class="fb-brand">S Rank</div>
-      <p class="fb-tag">The world's first fitness system. Train your body. Earn your rank. Est. 2026 — Season 01 opens May 2.</p>
+      <p class="fb-tag">The world's first fitness system. Train your body. Earn your rank. Est. 2026 — now live on Google Play.</p>
     </div>
     <div class="fb-col">
       <div class="fb-col-head">Product</div>
-      <a href="#waitlist">Waitlist</a>
+      <a href="https://play.google.com/store/apps/details?id=com.shadowrank.shadowrank_rn&pcampaignid=web_share" target="_blank" rel="noopener">Google Play</a>
       <a href="#download">Download</a>
       <a href="#faq">FAQ</a>
       <a href="#devlog">Dev Log</a>
@@ -961,79 +941,6 @@ footer{
     </div>
   </div>
 </footer>
-
-<!-- ── WAITLIST (Firestore REST) ── -->
-<script>
-(() => {
-  const PROJECT_ID = 'web-app-e2945';
-  const API_KEY    = 'AIzaSyBrn4iFRo0ylO2fJYMHO9cOQm_HUsS9dOM';
-  const ENDPOINT   = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/waitlist?key=${API_KEY}`;
-  const EMAIL_RE   = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
-
-  const form    = document.getElementById('wlForm');
-  const input   = document.getElementById('wlEmail');
-  const button  = document.getElementById('wlSubmit');
-  const message = document.getElementById('wlMsg');
-  if (!form) return;
-
-  function setMsg(text, kind) {
-    message.textContent = text;
-    message.classList.remove('ok', 'err');
-    if (kind) message.classList.add(kind);
-  }
-
-  function detectPlatform() {
-    const ua = (navigator.userAgent || '').toLowerCase();
-    if (/android/.test(ua)) return 'android';
-    if (/iphone|ipad|ipod/.test(ua)) return 'ios';
-    if (/mac os x/.test(ua)) return 'macos';
-    if (/windows/.test(ua)) return 'windows';
-    if (/linux/.test(ua)) return 'linux';
-    return 'web';
-  }
-
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = input.value.trim().toLowerCase();
-
-    if (!EMAIL_RE.test(email) || email.length < 5 || email.length > 254) {
-      setMsg('Enter a valid email.', 'err');
-      input.focus();
-      return;
-    }
-
-    button.disabled = true;
-    const original = button.textContent;
-    button.textContent = 'Enlisting...';
-    setMsg('', null);
-
-    const payload = {
-      fields: {
-        email:     { stringValue:    email },
-        createdAt: { timestampValue: new Date().toISOString() },
-        platform:  { stringValue:    detectPlatform() },
-        source:    { stringValue:    'website_launch_waitlist' }
-      }
-    };
-
-    try {
-      const response = await fetch(ENDPOINT, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload)
-      });
-      if (!response.ok) throw new Error('HTTP ' + response.status);
-      setMsg('Enlisted. Watch your inbox on launch day.', 'ok');
-      form.reset();
-    } catch (err) {
-      setMsg('Could not enlist — try again in a moment.', 'err');
-    } finally {
-      button.textContent = original;
-      button.disabled = false;
-    }
-  });
-})();
-</script>
 
 <script>
 /* ── PROGRESS + NAV ── */
@@ -1134,52 +1041,6 @@ observe('.cl-sub',      {threshold:.2},  el => {
 observe('.cl-btn',      {threshold:.2},  el => {
   setTimeout(() => el.classList.add('in'), 350);
 });
-
-/* ── COUNTDOWN TO MAY 2, 2026 (00:00 UTC) ── */
-(() => {
-  const target = Date.UTC(2026, 4, 2, 0, 0, 0); // May 2, 2026 UTC
-  const elD = document.getElementById('cdDays');
-  const elH = document.getElementById('cdHours');
-  const elM = document.getElementById('cdMins');
-  const elS = document.getElementById('cdSecs');
-  const proofDays = document.getElementById('proofDays');
-  if (!elD) return;
-  const pad = n => String(Math.max(0, n)).padStart(2, '0');
-  function tick() {
-    const diff = target - Date.now();
-    if (diff <= 0) {
-      elD.textContent = '00'; elH.textContent = '00';
-      elM.textContent = '00'; elS.textContent = '00';
-      if (proofDays) proofDays.textContent = 'LIVE';
-      return;
-    }
-    const s = Math.floor(diff / 1000);
-    const days = Math.floor(s / 86400);
-    const hrs  = Math.floor((s % 86400) / 3600);
-    const mins = Math.floor((s % 3600) / 60);
-    const secs = s % 60;
-    elD.textContent = pad(days);
-    elH.textContent = pad(hrs);
-    elM.textContent = pad(mins);
-    elS.textContent = pad(secs);
-    if (proofDays) proofDays.textContent = days;
-  }
-  tick();
-  setInterval(tick, 1000);
-})();
-
-/* ── WAITLIST COUNTER (seeded growing) ── */
-(() => {
-  const el = document.getElementById('proofWait');
-  if (!el) return;
-  const launch = Date.UTC(2026, 4, 2, 0, 0, 0);
-  const base   = Date.UTC(2026, 3, 1, 0, 0, 0); // start of tracking
-  const seed   = 312;
-  const elapsedHrs = Math.max(0, (Date.now() - base) / 3600000);
-  // ~2 hunters/hr ambient growth, floored
-  const count = seed + Math.floor(elapsedHrs * 2.1);
-  el.textContent = count.toLocaleString();
-})();
 
 /* ── FAQ ACCORDION ── */
 document.querySelectorAll('.faq-q').forEach(btn => {
