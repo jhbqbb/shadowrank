@@ -88,40 +88,56 @@ nav{
   line-height:1.78;margin-bottom:14px;
 }
 .waitlist-card{
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.04);
-  border-radius:8px;
-  padding:24px;
+  border:0;
+  background:transparent;
+  border-radius:0;
+  padding:0;
   margin:0 0 34px;
-  transition:border-color .25s,background .25s,transform .25s;
-}
-.waitlist-card:hover{
-  border-color:rgba(255,255,255,.2);
-  background:rgba(255,255,255,.055);
-  transform:translateY(-2px);
 }
 .waitlist-form{
   display:flex;
   gap:10px;
-  margin-top:18px;
+  margin-top:10px;
+  padding:8px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  background:rgba(255,255,255,.055);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 18px 60px rgba(0,0,0,.28);
+  backdrop-filter:blur(22px) saturate(1.2);
+  -webkit-backdrop-filter:blur(22px) saturate(1.2);
+  transition:border-color .25s,background .25s,transform .25s;
+}
+.waitlist-form:focus-within{
+  border-color:rgba(255,255,255,.3);
+  background:rgba(255,255,255,.075);
+  transform:translateY(-1px);
+}
+.waitlist-label{
+  display:block;
+  margin-top:20px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2.8px;
+  color:rgba(255,255,255,.36);
+  text-transform:uppercase;
 }
 .waitlist-input{
   flex:1;min-width:0;
-  background:#000;
-  border:1px solid var(--border);
+  background:transparent;
+  border:0;
   color:var(--w);
   font:inherit;
   font-size:15px;
-  padding:14px 15px;
-  border-radius:6px;
+  padding:0 12px;
+  border-radius:999px;
   outline:none;
   transition:border-color .2s,background .2s;
 }
 .waitlist-input::placeholder{color:rgba(255,255,255,.28)}
-.waitlist-input:focus{border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.03)}
+.waitlist-input:focus{background:transparent}
 .waitlist-submit{
   border:1px solid var(--w);
-  border-radius:6px;
+  border-radius:999px;
   background:var(--w);
   color:#000;
   font:inherit;
@@ -129,7 +145,8 @@ nav{
   font-weight:900;
   letter-spacing:2.5px;
   text-transform:uppercase;
-  padding:0 22px;
+  padding:0 24px;
+  min-height:44px;
   cursor:pointer;
   transition:opacity .2s,transform .2s,filter .2s;
 }
@@ -198,7 +215,8 @@ footer{
 @media(max-width:720px){
   nav{padding:0 20px}
   .legal-wrap{padding:96px 20px 80px}
-  .waitlist-form{flex-direction:column}
+  .waitlist-form{border-radius:18px;display:grid;grid-template-columns:1fr;padding:10px}
+  .waitlist-input{min-height:44px;padding:0 8px}
   .waitlist-submit{height:46px;width:100%}
   .status-grid{grid-template-columns:1fr}
   .status-item{border-right:none;border-bottom:1px solid var(--border)}
@@ -239,6 +257,7 @@ footer{
       <h2 style="margin-top:0">Join by Email</h2>
       <p>Enter your email to get the iOS TestFlight or App Store release notice. No spam, no public list.</p>
     </div>
+    <span class="waitlist-label">Email for iOS launch updates</span>
     <form class="waitlist-form" id="iosWaitlistForm" novalidate>
       <label for="iosEmail" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Email address</label>
       <input class="waitlist-input" id="iosEmail" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required/>
